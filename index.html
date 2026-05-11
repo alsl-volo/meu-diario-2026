@@ -46,7 +46,6 @@ body{
   max-height:380px;
   object-fit:contain;
   z-index:3;
-  filter:drop-shadow(0 0 25px rgba(255,200,100,.35));
 }
 
 .foto-tony{
@@ -57,7 +56,6 @@ body{
   max-height:360px;
   object-fit:contain;
   z-index:3;
-  filter:drop-shadow(0 0 25px rgba(255,200,100,.35));
 }
 
 .titulo-topo{
@@ -78,7 +76,6 @@ body{
   font-size:4.7rem;
   line-height:1.05;
   color:#f8d898;
-  text-shadow:0 0 18px rgba(255,180,50,.35);
   margin-bottom:14px;
 }
 
@@ -89,7 +86,6 @@ body{
   color:#fff3d9;
 }
 
-/* MENU MAIS PEQUENO */
 .menu{
   margin-top:18px;
   display:flex;
@@ -114,15 +110,10 @@ body{
   cursor:pointer;
 }
 
-.menu button:hover{
-  box-shadow:0 0 18px rgba(255,180,50,.35);
-}
-
-/* GRELHA */
 .conteudo{
   margin-top:18px;
   display:grid;
-  grid-template-columns:300px 1fr 340px;
+  grid-template-columns:300px 1fr 360px;
   gap:18px;
 }
 
@@ -140,7 +131,6 @@ body{
   color:#ffe7b0;
 }
 
-/* RELÓGIO */
 .relogio{
   width:220px;
   height:220px;
@@ -191,7 +181,7 @@ body{
   margin-top:8px;
 }
 
-/* CALENDÁRIO */
+/* CALENDÁRIO CLARO */
 .calendario{
   background:#f6efdf;
   color:#4e2f12;
@@ -211,6 +201,13 @@ body{
   padding:12px 20px;
   border-radius:16px;
   cursor:pointer;
+}
+
+#mesTitulo{
+  color:#5a3215 !important;
+  font-weight:700;
+  font-size:2.4rem;
+  text-shadow:none;
 }
 
 .cal-grid{
@@ -237,11 +234,8 @@ body{
   cursor:pointer;
 }
 
-.dia:hover{
-  background:#f2dfbd;
-}
+.dia:hover{background:#f2dfbd}
 
-/* DIÁRIO EDITÁVEL */
 textarea,input{
   width:100%;
   border:none;
@@ -258,9 +252,7 @@ textarea{
   resize:vertical;
 }
 
-.lista{
-  margin-top:12px;
-}
+.lista{margin-top:12px}
 
 .item{
   display:flex;
@@ -288,7 +280,22 @@ textarea{
   cursor:pointer;
 }
 
-/* CONCERTOS */
+/* CONCERTOS COM SCROLL */
+.concertos-box{
+  max-height:620px;
+  overflow-y:auto;
+  padding-right:8px;
+}
+
+.concertos-box::-webkit-scrollbar{
+  width:8px;
+}
+
+.concertos-box::-webkit-scrollbar-thumb{
+  background:#d8a94f;
+  border-radius:20px;
+}
+
 .concerto{
   background:#111;
   border-left:5px solid #5fa3ff;
@@ -313,18 +320,9 @@ textarea{
 @media(max-width:700px){
   body{padding:8px}
   .topo{min-height:620px}
-  .foto-ilvolo{
-    width:75%;
-    left:3%;
-  }
-  .foto-tony{
-    width:55%;
-    right:2%;
-  }
-  .titulo-topo{
-    width:86%;
-    padding:22px;
-  }
+  .foto-ilvolo{width:75%;left:3%}
+  .foto-tony{width:55%;right:2%}
+  .titulo-topo{width:86%;padding:22px}
   .titulo-topo h1{font-size:3.2rem}
 }
 </style>
@@ -390,16 +388,7 @@ textarea{
 
   <div class="caixa" id="concertos">
     <h2>PRÓXIMOS CONCERTOS IL VOLO</h2>
-    <div class="concerto">
-      <h3>Il Volo</h3>
-      <p>Marostica Summer Fest, Marostica</p>
-      <p>🗓️ 1 de Julho de 2026</p>
-    </div>
-    <div class="concerto">
-      <h3>Il Volo</h3>
-      <p>Piazza Duomo, Pistoia</p>
-      <p>🗓️ 3 de Julho de 2026</p>
-    </div>
+    <div class="concertos-box" id="listaConcertos"></div>
   </div>
 
 </div>
@@ -468,6 +457,37 @@ const meses = [
 
 const diasSemana = ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
 
+const concertosIlVolo = [
+  ["1 de Julho de 2026","Marostica Summer Fest, Marostica"],
+  ["3 de Julho de 2026","Piazza Duomo, Pistoia"],
+  ["6 de Julho de 2026","Asti Musica, Asti"],
+  ["8 de Julho de 2026","Castello Sforzesco, Vigevano"],
+  ["11 de Julho de 2026","Teatro Greco, Siracusa"],
+  ["15 de Julho de 2026","Barcelona"],
+  ["17 de Julho de 2026","Cernobbio"],
+  ["19 de Julho de 2026","Málaga"],
+  ["21 de Julho de 2026","Murcia"],
+  ["23 de Julho de 2026","Cattolica"],
+  ["25 de Julho de 2026","Este"],
+  ["27 de Julho de 2026","Thessaloniki"],
+  ["29 de Julho de 2026","Corfu"],
+  ["31 de Julho de 2026","Codroipo"],
+  ["2 de Agosto de 2026","Forte dei Marmi"],
+  ["7 de Agosto de 2026","Barletta"],
+  ["9 de Agosto de 2026","Alghero"],
+  ["22 de Agosto de 2026","Taormina"],
+  ["23 de Agosto de 2026","Taormina"],
+  ["24 de Setembro de 2026","Tutti Per Uno, Mantova"],
+  ["26 de Setembro de 2026","Tutti Per Uno, Mantova"],
+  ["27 de Setembro de 2026","Tutti Per Uno, Mantova"],
+  ["7 de Dezembro de 2026","Milano"],
+  ["12 de Dezembro de 2026","Firenze"],
+  ["17 de Dezembro de 2026","Roma"],
+  ["19 de Dezembro de 2026","Torino"],
+  ["20 de Dezembro de 2026","Bologna"],
+  ["26 de Outubro de 2027","Madrid"]
+];
+
 let dados = JSON.parse(localStorage.getItem("diarioAna")) || {
   diarios:{},
   tarefas:[],
@@ -516,7 +536,6 @@ function selecionarDia(chave){
   diaSelecionado = chave;
   dataEscolhida.innerText = dataBonita(chave);
   diario.value = dados.diarios[chave] || "";
-  scrollToBox("diarioBox");
 }
 
 diario.addEventListener("input",()=>{
@@ -583,6 +602,16 @@ function mostrarListas(){
   listaAniv.innerHTML = dados.aniversarios.map((x,i)=>`<div class="item"><span>${x}</span><button onclick="dados.aniversarios.splice(${i},1);guardar();mostrarListas()">x</button></div>`).join("");
 }
 
+function mostrarConcertos(){
+  listaConcertos.innerHTML = concertosIlVolo.map(c=>`
+    <div class="concerto">
+      <h3>Il Volo</h3>
+      <p>${c[1]}</p>
+      <p>🗓️ ${c[0]}</p>
+    </div>
+  `).join("");
+}
+
 function exportar(){
   const blob = new Blob([JSON.stringify(dados,null,2)],{type:"application/json"});
   const url = URL.createObjectURL(blob);
@@ -614,6 +643,7 @@ atualizarRelogio();
 selecionarDia(diaSelecionado);
 desenharCalendario();
 mostrarListas();
+mostrarConcertos();
 </script>
 
 </body>
