@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
@@ -8,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
   margin:0;
   padding:0;
@@ -18,18 +20,20 @@ body{
   background:#050505;
   color:#f7e7c1;
   font-family:'Cormorant Garamond',serif;
-  padding:18px;
+  padding:12px;
 }
 
 .app{
-  max-width:1500px;
+  width:100%;
+  max-width:1600px;
   margin:0 auto;
 }
 
 /* TOPO */
+
 .topo{
   position:relative;
-  height:390px;
+  min-height:380px;
   border-radius:34px;
   overflow:hidden;
   border:1px solid rgba(255,215,120,.35);
@@ -50,24 +54,22 @@ body{
 
 .foto-ilvolo{
   position:absolute;
-  left:5%;
+  left:4%;
   bottom:0;
-  width:34%;
-  max-height:355px;
+  width:32%;
+  max-height:340px;
   object-fit:contain;
   z-index:3;
-  filter:drop-shadow(0 0 22px rgba(255,200,100,.35));
 }
 
 .foto-tony{
   position:absolute;
-  right:7%;
+  right:6%;
   bottom:0;
-  width:27%;
-  max-height:345px;
+  width:24%;
+  max-height:330px;
   object-fit:contain;
   z-index:3;
-  filter:drop-shadow(0 0 22px rgba(255,200,100,.35));
 }
 
 .titulo-topo{
@@ -76,90 +78,84 @@ body{
   top:50%;
   transform:translate(-50%,-50%);
   z-index:4;
-  background:rgba(10,3,0,.86);
-  padding:30px 50px;
-  border-radius:34px;
-  border:1px solid rgba(255,215,120,.35);
+  background:rgba(10,3,0,.88);
+  padding:24px 42px;
+  border-radius:30px;
+  border:1px solid rgba(255,215,120,.3);
   text-align:center;
-  min-width:360px;
 }
 
 .titulo-topo h1{
   font-family:'Great Vibes',cursive;
-  font-size:4.4rem;
-  line-height:1.05;
+  font-size:4rem;
+  line-height:1;
   color:#f8d898;
-  margin-bottom:14px;
-  text-shadow:0 0 18px rgba(255,180,50,.35);
+  margin-bottom:10px;
 }
 
 .titulo-topo p{
-  font-size:1.05rem;
-  line-height:1.35;
+  font-size:1rem;
   font-weight:700;
-  color:#fff3d9;
+  line-height:1.35;
 }
 
 /* MENU */
+
 .menu{
-  margin:16px 0;
+  margin-top:14px;
   display:flex;
   flex-wrap:wrap;
-  gap:10px;
   justify-content:center;
+  gap:10px;
   background:#0a0502;
-  border-radius:26px;
+  border-radius:24px;
   padding:12px;
   border:1px solid rgba(255,200,100,.25);
 }
 
-button{
+.menu button{
   background:linear-gradient(to bottom,#5a360d,#2b1605);
   color:#ffe7b0;
   border:none;
-  padding:10px 16px;
-  border-radius:15px;
+  padding:10px 15px;
+  border-radius:14px;
   font-size:.95rem;
-  font-family:'Cormorant Garamond',serif;
-  font-weight:700;
   cursor:pointer;
 }
 
-button:hover{
-  box-shadow:0 0 16px rgba(255,180,50,.35);
-}
+/* CONTEÚDO */
 
-/* LAYOUT */
 .conteudo{
+  margin-top:16px;
   display:grid;
-  grid-template-columns:260px 1fr 320px;
+  grid-template-columns:220px 1fr 280px;
   gap:16px;
   align-items:start;
 }
 
 .caixa{
   background:#0a0502;
-  border-radius:24px;
-  padding:18px;
+  border-radius:22px;
+  padding:16px;
   border:1px solid rgba(255,200,100,.25);
 }
 
 .caixa h2{
   text-align:center;
   margin-bottom:14px;
-  font-size:1.75rem;
   color:#ffe7b0;
 }
 
 /* RELÓGIO */
+
 .relogio{
-  width:190px;
-  height:190px;
-  border:8px solid #d8a94f;
+  width:170px;
+  height:170px;
+  border:7px solid #d8a94f;
   border-radius:50%;
-  margin:16px auto;
+  margin:10px auto;
   position:relative;
-  background:#000;
+  background:black;
 }
 
 .numero{
@@ -168,9 +164,9 @@ button:hover{
   font-weight:bold;
 }
 
-.n12{top:8px;left:50%;transform:translateX(-50%)}
+.n12{top:10px;left:50%;transform:translateX(-50%)}
 .n3{right:14px;top:50%;transform:translateY(-50%)}
-.n6{bottom:8px;left:50%;transform:translateX(-50%)}
+.n6{bottom:10px;left:50%;transform:translateX(-50%)}
 .n9{left:14px;top:50%;transform:translateY(-50%)}
 
 .ponteiro{
@@ -178,16 +174,29 @@ button:hover{
   left:50%;
   top:50%;
   transform-origin:bottom;
-  border-radius:10px;
 }
 
-.horas{width:7px;height:52px;background:#ffe7b0}
-.minutos{width:5px;height:72px;background:white}
-.segundos{width:3px;height:82px;background:red}
+.horas{
+  width:6px;
+  height:46px;
+  background:#ffe7b0;
+}
+
+.minutos{
+  width:4px;
+  height:66px;
+  background:white;
+}
+
+.segundos{
+  width:2px;
+  height:74px;
+  background:red;
+}
 
 .centro{
-  width:16px;
-  height:16px;
+  width:14px;
+  height:14px;
   background:#d8a94f;
   border-radius:50%;
   position:absolute;
@@ -198,11 +207,12 @@ button:hover{
 
 .digital{
   text-align:center;
-  font-size:1.3rem;
-  margin-top:8px;
+  margin-top:12px;
+  font-size:1.2rem;
 }
 
 /* CALENDÁRIO */
+
 .calendario{
   background:#f6efdf;
   color:#4e2f12;
@@ -212,20 +222,17 @@ button:hover{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:16px;
+  margin-bottom:14px;
 }
 
 .cal-topo button{
   background:#3a1f07;
   color:white;
-  padding:10px 18px;
 }
 
 #mesTitulo{
-  color:#5a3215 !important;
-  font-weight:700;
-  font-size:2.2rem;
-  text-align:center;
+  color:#5a3215;
+  font-size:2rem;
 }
 
 .cal-grid{
@@ -233,71 +240,58 @@ button:hover{
   grid-template-columns:repeat(7,1fr);
 }
 
-.dia-nome,.dia{
+.dia-nome,
+.dia{
   border:1px solid #dcc7a0;
-  min-height:78px;
-  padding:9px;
+  min-height:70px;
+  padding:8px;
 }
 
 .dia-nome{
   background:#eadcc2;
-  font-weight:bold;
   text-align:center;
-  font-size:1.05rem;
+  font-weight:bold;
 }
 
 .dia{
   background:#fffdf8;
-  font-size:1rem;
-  cursor:pointer;
-}
-
-.dia:hover{
-  background:#f2dfbd;
 }
 
 /* CONCERTOS */
+
 .concertos-box{
   max-height:520px;
   overflow-y:auto;
-  padding-right:6px;
 }
 
 .concerto{
   background:#111;
-  border-left:5px solid #5fa3ff;
-  padding:13px;
-  border-radius:15px;
-  margin-bottom:12px;
-}
-
-.concerto h3{
-  color:#ffe7b0;
-  font-size:1.3rem;
+  border-left:4px solid #5fa3ff;
+  padding:10px;
+  border-radius:14px;
+  margin-bottom:10px;
 }
 
 /* BAIXO */
+
 .baixo{
   margin-top:16px;
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
   gap:16px;
 }
 
-textarea,input{
+textarea,
+input{
   width:100%;
   border:none;
-  border-radius:15px;
-  padding:14px;
-  font-size:1rem;
-  font-family:'Cormorant Garamond',serif;
-  background:#fffdf8;
-  color:#3b210f;
+  border-radius:12px;
+  padding:12px;
+  margin-top:8px;
 }
 
 textarea{
-  min-height:190px;
-  resize:vertical;
+  min-height:170px;
 }
 
 .lista{
@@ -308,46 +302,48 @@ textarea{
   display:flex;
   justify-content:space-between;
   gap:10px;
-  padding:7px 0;
-  border-bottom:1px solid rgba(255,215,120,.2);
+  padding:6px 0;
+  border-bottom:1px solid rgba(255,215,120,.15);
 }
 
 .item button{
-  padding:4px 9px;
   background:#4b1d10;
+  border:none;
+  color:white;
+  border-radius:8px;
+  padding:4px 8px;
 }
 
 .add{
   margin-top:8px;
 }
 
+/* MOBILE */
+
 @media(max-width:1100px){
-  .conteudo,.baixo{
+
+  .conteudo{
     grid-template-columns:1fr;
   }
 
-  .topo{
-    height:520px;
-  }
-
   .foto-ilvolo{
-    width:46%;
-    left:3%;
+    width:42%;
   }
 
   .foto-tony{
-    width:38%;
-    right:3%;
+    width:34%;
   }
+
 }
 
 @media(max-width:700px){
+
   body{
-    padding:8px;
+    padding:6px;
   }
 
   .topo{
-    height:610px;
+    min-height:560px;
   }
 
   .foto-ilvolo{
@@ -356,24 +352,25 @@ textarea{
   }
 
   .foto-tony{
-    width:55%;
+    width:50%;
     right:2%;
   }
 
   .titulo-topo{
-    min-width:0;
-    width:86%;
+    width:85%;
     padding:20px;
   }
 
   .titulo-topo h1{
-    font-size:3.1rem;
+    font-size:3rem;
   }
 
-  .conteudo,.baixo{
-    grid-template-columns:1fr;
+  .menu button{
+    width:100%;
   }
+
 }
+
 </style>
 </head>
 
@@ -382,318 +379,110 @@ textarea{
 <div class="app">
 
 <header class="topo">
-  <img class="foto-ilvolo" src="./il volo 1.png" alt="Il Volo">
 
-  <div class="titulo-topo">
-    <h1>O Meu<br>Diário...</h1>
-    <p>Calendário, memórias, tarefas,<br>compras e momentos especiais</p>
-  </div>
+<img class="foto-ilvolo" src="./il volo 1.png" alt="Il Volo">
 
-  <img class="foto-tony" src="./eu e tony1.png" alt="Ana e Tony">
+<div class="titulo-topo">
+<h1>O Meu<br>Diário...</h1>
+<p>Calendário, memórias, tarefas,<br>compras e momentos especiais</p>
+</div>
+
+<img class="foto-tony" src="./eu e tony1.png" alt="Ana e Tony">
+
 </header>
 
 <nav class="menu">
-  <button onclick="scrollToBox('calendario')">🗓️ Calendário</button>
-  <button onclick="scrollToBox('tarefas')">☑️ Tarefas</button>
-  <button onclick="scrollToBox('diarioBox')">📖 Memórias</button>
-  <button onclick="scrollToBox('compras')">🛒 Compras</button>
-  <button onclick="scrollToBox('aniversarios')">🎂 Aniversários</button>
-  <button onclick="scrollToBox('feriados')">🚩 Feriados</button>
-  <button onclick="scrollToBox('concertos')">🎵 Concertos Il Volo</button>
-  <button onclick="exportar()">💾 Guardar</button>
+
+<button>🗓️ Calendário</button>
+<button>☑️ Tarefas</button>
+<button>📖 Memórias</button>
+<button>🛒 Compras</button>
+<button>🎂 Aniversários</button>
+<button>🚩 Feriados</button>
+<button>🎵 Concertos Il Volo</button>
+<button>💾 Guardar</button>
+
 </nav>
 
 <div class="conteudo">
 
-  <div class="caixa">
-    <h2>RELÓGIO</h2>
+<div class="caixa">
+<h2>RELÓGIO</h2>
 
-    <div class="relogio">
-      <div class="numero n12">12</div>
-      <div class="numero n3">3</div>
-      <div class="numero n6">6</div>
-      <div class="numero n9">9</div>
-      <div class="ponteiro horas" id="horas"></div>
-      <div class="ponteiro minutos" id="minutos"></div>
-      <div class="ponteiro segundos" id="segundos"></div>
-      <div class="centro"></div>
-    </div>
+<div class="relogio">
+<div class="numero n12">12</div>
+<div class="numero n3">3</div>
+<div class="numero n6">6</div>
+<div class="numero n9">9</div>
+<div class="centro"></div>
+</div>
 
-    <div class="digital" id="digital"></div>
-  </div>
+<div class="digital">04:20:00</div>
+</div>
 
-  <div class="caixa calendario" id="calendario">
-    <div class="cal-topo">
-      <button onclick="mudarMes(-1)">‹ Anterior</button>
-      <div>
-        <h2 id="mesTitulo"></h2>
-        <button onclick="irHoje()">Hoje</button>
-      </div>
-      <button onclick="mudarMes(1)">Seguinte ›</button>
-    </div>
+<div class="caixa calendario">
+<div class="cal-topo">
+<button>‹ Anterior</button>
+<h2 id="mesTitulo">Maio 2026</h2>
+<button>Seguinte ›</button>
+</div>
 
-    <div class="cal-grid" id="calGrid"></div>
-  </div>
+<div class="cal-grid">
 
-  <div class="caixa" id="concertos">
-    <h2>PRÓXIMOS CONCERTOS IL VOLO</h2>
-    <div class="concertos-box" id="listaConcertos"></div>
-  </div>
+<div class="dia-nome">Seg</div>
+<div class="dia-nome">Ter</div>
+<div class="dia-nome">Qua</div>
+<div class="dia-nome">Qui</div>
+<div class="dia-nome">Sex</div>
+<div class="dia-nome">Sáb</div>
+<div class="dia-nome">Dom</div>
+
+</div>
+</div>
+
+<div class="caixa">
+<h2>PRÓXIMOS CONCERTOS IL VOLO</h2>
+
+<div class="concertos-box">
+
+<div class="concerto">
+<h3>Il Volo</h3>
+<p>Marostica Summer Fest</p>
+<p>1 Julho 2026</p>
+</div>
+
+<div class="concerto">
+<h3>Il Volo</h3>
+<p>Piazza Duomo, Pistoia</p>
+<p>3 Julho 2026</p>
+</div>
+
+</div>
+</div>
 
 </div>
 
 <div class="baixo">
 
-  <div class="caixa" id="diarioBox">
-    <h2>📖 Diário do Dia</h2>
-    <p id="dataEscolhida" style="text-align:center;margin-bottom:10px"></p>
-    <textarea id="diario" placeholder="Escreve aqui memórias, pensamentos, ideias ou momentos especiais..."></textarea>
-  </div>
+<div class="caixa">
+<h2>📖 Diário do Dia</h2>
+<textarea placeholder="Escreve aqui..."></textarea>
+</div>
 
-  <div class="caixa" id="tarefas">
-    <h2>☑️ Tarefas</h2>
-    <input id="novaTarefa" placeholder="Nova tarefa...">
-    <button class="add" onclick="adicionarTarefa()">+ Adicionar</button>
-    <div class="lista" id="listaTarefas"></div>
-  </div>
+<div class="caixa">
+<h2>☑️ Tarefas</h2>
+<input placeholder="Nova tarefa...">
+</div>
 
-  <div class="caixa" id="compras">
-    <h2>🛒 Compras</h2>
-    <input id="novaCompra" placeholder="Produto a comprar...">
-    <button class="add" onclick="adicionarCompra()">+ Adicionar</button>
-    <div class="lista" id="listaCompras"></div>
-  </div>
-
-  <div class="caixa" id="aniversarios">
-    <h2>🎂 Aniversários</h2>
-    <input id="novoAniv" placeholder="Ex: Luca - 20 Abril">
-    <button class="add" onclick="adicionarAniv()">+ Adicionar</button>
-    <div class="lista" id="listaAniv"></div>
-  </div>
-
-  <div class="caixa" id="feriados">
-    <h2>🚩 Feriados</h2>
-    <p>🇵🇹 1 Janeiro — Ano Novo</p>
-    <p>🇵🇹 25 Abril — Dia da Liberdade</p>
-    <p>🇵🇹 1 Maio — Dia do Trabalhador</p>
-    <p>🇵🇹 10 Junho — Dia de Portugal</p>
-    <p>🇮🇹 6 Janeiro — Epifania</p>
-    <p>🇮🇹 2 Junho — Festa della Repubblica</p>
-    <p>🇮🇹 15 Agosto — Ferragosto</p>
-    <p>🇮🇹 25 Dezembro — Natale</p>
-  </div>
-
-  <div class="caixa">
-    <h2>💾 Cópia</h2>
-    <button class="add" onclick="exportar()">Exportar dados</button>
-    <input type="file" id="importarFicheiro" style="margin-top:12px">
-  </div>
-
+<div class="caixa">
+<h2>🛒 Compras</h2>
+<input placeholder="Produto a comprar...">
 </div>
 
 </div>
 
-<script>
-let dataAtual = new Date();
-let ano = dataAtual.getFullYear();
-let mes = dataAtual.getMonth();
-let diaSelecionado = formatarData(dataAtual);
-
-const meses = [
-  "Janeiro","Fevereiro","Março","Abril","Maio","Junho",
-  "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"
-];
-
-const diasSemana = ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
-
-const concertosIlVolo = [
-  ["1 de Julho de 2026","Marostica Summer Fest, Marostica"],
-  ["3 de Julho de 2026","Piazza Duomo, Pistoia"],
-  ["6 de Julho de 2026","Asti Musica, Asti"],
-  ["8 de Julho de 2026","Castello Sforzesco, Vigevano"],
-  ["11 de Julho de 2026","Teatro Greco, Siracusa"],
-  ["15 de Julho de 2026","Barcelona"],
-  ["17 de Julho de 2026","Cernobbio"],
-  ["19 de Julho de 2026","Málaga"],
-  ["21 de Julho de 2026","Murcia"],
-  ["23 de Julho de 2026","Cattolica"],
-  ["25 de Julho de 2026","Este"],
-  ["27 de Julho de 2026","Thessaloniki"],
-  ["29 de Julho de 2026","Corfu"],
-  ["31 de Julho de 2026","Codroipo"],
-  ["2 de Agosto de 2026","Forte dei Marmi"],
-  ["7 de Agosto de 2026","Barletta"],
-  ["9 de Agosto de 2026","Alghero"],
-  ["22 de Agosto de 2026","Taormina"],
-  ["23 de Agosto de 2026","Taormina"],
-  ["24 de Setembro de 2026","Tutti Per Uno, Mantova"],
-  ["26 de Setembro de 2026","Tutti Per Uno, Mantova"],
-  ["27 de Setembro de 2026","Tutti Per Uno, Mantova"],
-  ["7 de Dezembro de 2026","Milano"],
-  ["12 de Dezembro de 2026","Firenze"],
-  ["17 de Dezembro de 2026","Roma"],
-  ["19 de Dezembro de 2026","Torino"],
-  ["20 de Dezembro de 2026","Bologna"],
-  ["26 de Outubro de 2027","Madrid"]
-];
-
-let dados = JSON.parse(localStorage.getItem("diarioAna")) || {
-  diarios:{},
-  tarefas:[],
-  compras:[],
-  aniversarios:[]
-};
-
-function guardar(){
-  localStorage.setItem("diarioAna",JSON.stringify(dados));
-}
-
-function formatarData(d){
-  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
-}
-
-function dataBonita(k){
-  const [a,m,d]=k.split("-");
-  return d+" de "+meses[Number(m)-1]+" de "+a;
-}
-
-function desenharCalendario(){
-  mesTitulo.innerText = meses[mes]+" "+ano;
-  calGrid.innerHTML = "";
-
-  diasSemana.forEach(d=>{
-    calGrid.innerHTML += `<div class="dia-nome">${d}</div>`;
-  });
-
-  let primeiro = new Date(ano,mes,1);
-  let ultimo = new Date(ano,mes+1,0);
-  let inicio = primeiro.getDay()-1;
-  if(inicio<0) inicio=6;
-
-  for(let i=0;i<inicio;i++){
-    calGrid.innerHTML += `<div class="dia"></div>`;
-  }
-
-  for(let d=1; d<=ultimo.getDate(); d++){
-    let chave = formatarData(new Date(ano,mes,d));
-    let texto = dados.diarios[chave] ? "📖" : "";
-    calGrid.innerHTML += `<div class="dia" onclick="selecionarDia('${chave}')"><strong>${d}</strong><br>${texto}</div>`;
-  }
-}
-
-function selecionarDia(chave){
-  diaSelecionado = chave;
-  dataEscolhida.innerText = dataBonita(chave);
-  diario.value = dados.diarios[chave] || "";
-}
-
-diario.addEventListener("input",()=>{
-  dados.diarios[diaSelecionado]=diario.value;
-  guardar();
-  desenharCalendario();
-});
-
-function mudarMes(v){
-  mes += v;
-  if(mes<0){mes=11;ano--}
-  if(mes>11){mes=0;ano++}
-  desenharCalendario();
-}
-
-function irHoje(){
-  let h = new Date();
-  ano=h.getFullYear();
-  mes=h.getMonth();
-  selecionarDia(formatarData(h));
-  desenharCalendario();
-}
-
-function atualizarRelogio(){
-  const agora = new Date();
-  const h = agora.getHours();
-  const m = agora.getMinutes();
-  const s = agora.getSeconds();
-
-  horas.style.transform = `translate(-50%, -100%) rotate(${(h%12)*30+m*.5}deg)`;
-  minutos.style.transform = `translate(-50%, -100%) rotate(${m*6}deg)`;
-  segundos.style.transform = `translate(-50%, -100%) rotate(${s*6}deg)`;
-
-  digital.innerText = agora.toLocaleTimeString("pt-PT");
-}
-
-function adicionarTarefa(){
-  if(!novaTarefa.value.trim()) return;
-  dados.tarefas.push(novaTarefa.value.trim());
-  novaTarefa.value="";
-  guardar();
-  mostrarListas();
-}
-
-function adicionarCompra(){
-  if(!novaCompra.value.trim()) return;
-  dados.compras.push(novaCompra.value.trim());
-  novaCompra.value="";
-  guardar();
-  mostrarListas();
-}
-
-function adicionarAniv(){
-  if(!novoAniv.value.trim()) return;
-  dados.aniversarios.push(novoAniv.value.trim());
-  novoAniv.value="";
-  guardar();
-  mostrarListas();
-}
-
-function mostrarListas(){
-  listaTarefas.innerHTML = dados.tarefas.map((x,i)=>`<div class="item"><span>${x}</span><button onclick="dados.tarefas.splice(${i},1);guardar();mostrarListas()">x</button></div>`).join("");
-  listaCompras.innerHTML = dados.compras.map((x,i)=>`<div class="item"><span>${x}</span><button onclick="dados.compras.splice(${i},1);guardar();mostrarListas()">x</button></div>`).join("");
-  listaAniv.innerHTML = dados.aniversarios.map((x,i)=>`<div class="item"><span>${x}</span><button onclick="dados.aniversarios.splice(${i},1);guardar();mostrarListas()">x</button></div>`).join("");
-}
-
-function mostrarConcertos(){
-  listaConcertos.innerHTML = concertosIlVolo.map(c=>`
-    <div class="concerto">
-      <h3>Il Volo</h3>
-      <p>${c[1]}</p>
-      <p>🗓️ ${c[0]}</p>
-    </div>
-  `).join("");
-}
-
-function exportar(){
-  const blob = new Blob([JSON.stringify(dados,null,2)],{type:"application/json"});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href=url;
-  a.download="copia-diario-ana.json";
-  a.click();
-}
-
-importarFicheiro.addEventListener("change",e=>{
-  const file=e.target.files[0];
-  if(!file) return;
-  const reader=new FileReader();
-  reader.onload=ev=>{
-    dados=JSON.parse(ev.target.result);
-    guardar();
-    mostrarListas();
-    desenharCalendario();
-  };
-  reader.readAsText(file);
-});
-
-function scrollToBox(id){
-  document.getElementById(id).scrollIntoView({behavior:"smooth"});
-}
-
-setInterval(atualizarRelogio,1000);
-atualizarRelogio();
-selecionarDia(diaSelecionado);
-desenharCalendario();
-mostrarListas();
-mostrarConcertos();
-</script>
+</div>
 
 </body>
 </html>
+```
