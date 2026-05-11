@@ -10,6 +10,46 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
+.app{
+    max-width:1800px;
+    margin:auto;
+}
+
+.conteudo{
+    margin-top:18px;
+    display:grid;
+    grid-template-columns:300px 1fr 360px;
+    gap:18px;
+}
+
+.baixo{
+    margin-top:18px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.menu{
+    margin-top:18px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    background:#0a0502;
+    border-radius:28px;
+    padding:14px;
+}
+
+.menu button{
+    background:linear-gradient(to bottom,#5a360d,#2b1605);
+    color:#ffe7b0;
+    border:none;
+    padding:10px 18px;
+    border-radius:16px;
+    font-size:1rem;
+    cursor:pointer;
+}
+
 body{
   background:#050505;
   color:#f7e7c1;
