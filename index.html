@@ -8,46 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-.app{
-    max-width:1800px;
-    margin:auto;
-}
-
-.conteudo{
-    margin-top:18px;
-    display:grid;
-    grid-template-columns:300px 1fr 360px;
-    gap:18px;
-}
-
-.baixo{
-    margin-top:18px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.menu{
-    margin-top:18px;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:10px;
-    background:#0a0502;
-    border-radius:28px;
-    padding:14px;
-}
-
-.menu button{
-    background:linear-gradient(to bottom,#5a360d,#2b1605);
-    color:#ffe7b0;
-    border:none;
-    padding:10px 18px;
-    border-radius:16px;
-    font-size:1rem;
-    cursor:pointer;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 body{
@@ -57,25 +21,31 @@ body{
   padding:18px;
 }
 
-.topo{
-  position:relative;
-  min-height:420px;
-  border-radius:38px;
-  overflow:hidden;
-  border:1px solid rgba(255,215,120,.3);
-  background:
-    radial-gradient(circle at 20% 10%,rgba(255,190,60,.45),transparent 25%),
-    radial-gradient(circle at 80% 10%,rgba(255,190,60,.45),transparent 25%),
-    linear-gradient(to bottom,#140800,#050505);
+.app{
+  max-width:1500px;
+  margin:0 auto;
 }
 
-.topo:before{
+/* TOPO */
+.topo{
+  position:relative;
+  height:390px;
+  border-radius:34px;
+  overflow:hidden;
+  border:1px solid rgba(255,215,120,.35);
+  background:
+    radial-gradient(circle at 20% 10%,rgba(255,190,60,.45),transparent 26%),
+    radial-gradient(circle at 80% 10%,rgba(255,190,60,.45),transparent 26%),
+    linear-gradient(to bottom,#170b02,#050505);
+}
+
+.topo::before{
   content:"";
   position:absolute;
   inset:0;
-  background-image:radial-gradient(#d4a54b 1.5px,transparent 1.5px);
+  background-image:radial-gradient(#d4a54b 1.4px,transparent 1.4px);
   background-size:55px 55px;
-  opacity:.6;
+  opacity:.55;
 }
 
 .foto-ilvolo{
@@ -83,19 +53,21 @@ body{
   left:5%;
   bottom:0;
   width:34%;
-  max-height:380px;
+  max-height:355px;
   object-fit:contain;
   z-index:3;
+  filter:drop-shadow(0 0 22px rgba(255,200,100,.35));
 }
 
 .foto-tony{
   position:absolute;
-  right:6%;
+  right:7%;
   bottom:0;
   width:27%;
-  max-height:360px;
+  max-height:345px;
   object-fit:contain;
   z-index:3;
+  filter:drop-shadow(0 0 22px rgba(255,200,100,.35));
 }
 
 .titulo-topo{
@@ -104,93 +76,102 @@ body{
   top:50%;
   transform:translate(-50%,-50%);
   z-index:4;
-  background:rgba(10,3,0,.85);
-  padding:32px 52px;
+  background:rgba(10,3,0,.86);
+  padding:30px 50px;
   border-radius:34px;
   border:1px solid rgba(255,215,120,.35);
   text-align:center;
+  min-width:360px;
 }
 
 .titulo-topo h1{
   font-family:'Great Vibes',cursive;
-  font-size:4.7rem;
+  font-size:4.4rem;
   line-height:1.05;
   color:#f8d898;
   margin-bottom:14px;
+  text-shadow:0 0 18px rgba(255,180,50,.35);
 }
 
 .titulo-topo p{
   font-size:1.05rem;
-  line-height:1.4;
+  line-height:1.35;
   font-weight:700;
   color:#fff3d9;
 }
 
+/* MENU */
 .menu{
-  margin-top:18px;
+  margin:16px 0;
   display:flex;
   flex-wrap:wrap;
   gap:10px;
   justify-content:center;
   background:#0a0502;
-  border-radius:28px;
-  padding:14px;
-  border:1px solid rgba(255,200,100,.2);
+  border-radius:26px;
+  padding:12px;
+  border:1px solid rgba(255,200,100,.25);
 }
 
-.menu button{
+button{
   background:linear-gradient(to bottom,#5a360d,#2b1605);
   color:#ffe7b0;
   border:none;
-  padding:10px 18px;
-  border-radius:16px;
-  font-size:.92rem;
+  padding:10px 16px;
+  border-radius:15px;
+  font-size:.95rem;
   font-family:'Cormorant Garamond',serif;
   font-weight:700;
   cursor:pointer;
 }
 
+button:hover{
+  box-shadow:0 0 16px rgba(255,180,50,.35);
+}
+
+/* LAYOUT */
 .conteudo{
-  margin-top:18px;
   display:grid;
-  grid-template-columns:300px 1fr 360px;
-  gap:18px;
+  grid-template-columns:260px 1fr 320px;
+  gap:16px;
+  align-items:start;
 }
 
 .caixa{
   background:#0a0502;
-  border-radius:28px;
-  padding:22px;
+  border-radius:24px;
+  padding:18px;
   border:1px solid rgba(255,200,100,.25);
 }
 
 .caixa h2{
   text-align:center;
-  margin-bottom:18px;
-  font-size:2rem;
+  margin-bottom:14px;
+  font-size:1.75rem;
   color:#ffe7b0;
 }
 
+/* RELÓGIO */
 .relogio{
-  width:220px;
-  height:220px;
-  border:9px solid #d8a94f;
+  width:190px;
+  height:190px;
+  border:8px solid #d8a94f;
   border-radius:50%;
-  margin:20px auto;
+  margin:16px auto;
   position:relative;
   background:#000;
 }
 
 .numero{
   position:absolute;
-  font-size:1.8rem;
+  font-size:1.5rem;
   font-weight:bold;
 }
 
-.n12{top:10px;left:50%;transform:translateX(-50%)}
-.n3{right:15px;top:50%;transform:translateY(-50%)}
-.n6{bottom:10px;left:50%;transform:translateX(-50%)}
-.n9{left:15px;top:50%;transform:translateY(-50%)}
+.n12{top:8px;left:50%;transform:translateX(-50%)}
+.n3{right:14px;top:50%;transform:translateY(-50%)}
+.n6{bottom:8px;left:50%;transform:translateX(-50%)}
+.n9{left:14px;top:50%;transform:translateY(-50%)}
 
 .ponteiro{
   position:absolute;
@@ -200,13 +181,13 @@ body{
   border-radius:10px;
 }
 
-.horas{width:8px;height:58px;background:#ffe7b0}
-.minutos{width:6px;height:82px;background:white}
-.segundos{width:3px;height:95px;background:red}
+.horas{width:7px;height:52px;background:#ffe7b0}
+.minutos{width:5px;height:72px;background:white}
+.segundos{width:3px;height:82px;background:red}
 
 .centro{
-  width:18px;
-  height:18px;
+  width:16px;
+  height:16px;
   background:#d8a94f;
   border-radius:50%;
   position:absolute;
@@ -217,11 +198,11 @@ body{
 
 .digital{
   text-align:center;
-  font-size:1.4rem;
+  font-size:1.3rem;
   margin-top:8px;
 }
 
-/* CALENDÁRIO CLARO */
+/* CALENDÁRIO */
 .calendario{
   background:#f6efdf;
   color:#4e2f12;
@@ -231,23 +212,20 @@ body{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:20px;
+  margin-bottom:16px;
 }
 
 .cal-topo button{
   background:#3a1f07;
   color:white;
-  border:none;
-  padding:12px 20px;
-  border-radius:16px;
-  cursor:pointer;
+  padding:10px 18px;
 }
 
 #mesTitulo{
   color:#5a3215 !important;
   font-weight:700;
-  font-size:2.4rem;
-  text-shadow:none;
+  font-size:2.2rem;
+  text-align:center;
 }
 
 .cal-grid{
@@ -257,15 +235,15 @@ body{
 
 .dia-nome,.dia{
   border:1px solid #dcc7a0;
-  min-height:82px;
-  padding:10px;
+  min-height:78px;
+  padding:9px;
 }
 
 .dia-nome{
   background:#eadcc2;
   font-weight:bold;
   text-align:center;
-  font-size:1.1rem;
+  font-size:1.05rem;
 }
 
 .dia{
@@ -274,96 +252,127 @@ body{
   cursor:pointer;
 }
 
-.dia:hover{background:#f2dfbd}
+.dia:hover{
+  background:#f2dfbd;
+}
+
+/* CONCERTOS */
+.concertos-box{
+  max-height:520px;
+  overflow-y:auto;
+  padding-right:6px;
+}
+
+.concerto{
+  background:#111;
+  border-left:5px solid #5fa3ff;
+  padding:13px;
+  border-radius:15px;
+  margin-bottom:12px;
+}
+
+.concerto h3{
+  color:#ffe7b0;
+  font-size:1.3rem;
+}
+
+/* BAIXO */
+.baixo{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
 
 textarea,input{
   width:100%;
   border:none;
-  border-radius:18px;
-  padding:16px;
-  font-size:1.05rem;
+  border-radius:15px;
+  padding:14px;
+  font-size:1rem;
   font-family:'Cormorant Garamond',serif;
   background:#fffdf8;
   color:#3b210f;
 }
 
 textarea{
-  min-height:210px;
+  min-height:190px;
   resize:vertical;
 }
 
-.lista{margin-top:12px}
+.lista{
+  margin-top:10px;
+}
 
 .item{
   display:flex;
   justify-content:space-between;
   gap:10px;
-  padding:8px 0;
+  padding:7px 0;
   border-bottom:1px solid rgba(255,215,120,.2);
 }
 
 .item button{
+  padding:4px 9px;
   background:#4b1d10;
-  color:white;
-  border:none;
-  border-radius:10px;
-  padding:5px 10px;
 }
 
 .add{
   margin-top:8px;
-  background:#5a360d;
-  color:#ffe7b0;
-  border:none;
-  border-radius:14px;
-  padding:10px 14px;
-  cursor:pointer;
-}
-
-/* CONCERTOS COM SCROLL */
-.concertos-box{
-  max-height:620px;
-  overflow-y:auto;
-  padding-right:8px;
-}
-
-.concertos-box::-webkit-scrollbar{
-  width:8px;
-}
-
-.concertos-box::-webkit-scrollbar-thumb{
-  background:#d8a94f;
-  border-radius:20px;
-}
-
-.concerto{
-  background:#111;
-  border-left:5px solid #5fa3ff;
-  padding:16px;
-  border-radius:18px;
-  margin-bottom:14px;
-}
-
-.baixo{
-  margin-top:18px;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
 }
 
 @media(max-width:1100px){
-  .conteudo,.baixo{grid-template-columns:1fr}
-  .foto-ilvolo{width:45%}
-  .foto-tony{width:35%}
+  .conteudo,.baixo{
+    grid-template-columns:1fr;
+  }
+
+  .topo{
+    height:520px;
+  }
+
+  .foto-ilvolo{
+    width:46%;
+    left:3%;
+  }
+
+  .foto-tony{
+    width:38%;
+    right:3%;
+  }
 }
 
 @media(max-width:700px){
-  body{padding:8px}
-  .topo{min-height:620px}
-  .foto-ilvolo{width:75%;left:3%}
-  .foto-tony{width:55%;right:2%}
-  .titulo-topo{width:86%;padding:22px}
-  .titulo-topo h1{font-size:3.2rem}
+  body{
+    padding:8px;
+  }
+
+  .topo{
+    height:610px;
+  }
+
+  .foto-ilvolo{
+    width:72%;
+    left:2%;
+  }
+
+  .foto-tony{
+    width:55%;
+    right:2%;
+  }
+
+  .titulo-topo{
+    min-width:0;
+    width:86%;
+    padding:20px;
+  }
+
+  .titulo-topo h1{
+    font-size:3.1rem;
+  }
+
+  .conteudo,.baixo{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
@@ -373,20 +382,16 @@ textarea{
 <div class="app">
 
 <header class="topo">
+  <img class="foto-ilvolo" src="./il volo 1.png" alt="Il Volo">
 
-    <img class="foto-ilvolo" src="./il volo 1.png" alt="Il Volo">
+  <div class="titulo-topo">
+    <h1>O Meu<br>Diário...</h1>
+    <p>Calendário, memórias, tarefas,<br>compras e momentos especiais</p>
+  </div>
 
-    <div class="titulo-topo">
-        <h1>O Meu<br>Diário...</h1>
-        <p>
-            Calendário, memórias, tarefas,<br>
-            compras e momentos especiais
-        </p>
-    </div>
-
-    <img class="foto-tony" src="./eu e tony1.png" alt="Ana e Tony">
-
+  <img class="foto-tony" src="./eu e tony1.png" alt="Ana e Tony">
 </header>
+
 <nav class="menu">
   <button onclick="scrollToBox('calendario')">🗓️ Calendário</button>
   <button onclick="scrollToBox('tarefas')">☑️ Tarefas</button>
@@ -420,7 +425,7 @@ textarea{
   <div class="caixa calendario" id="calendario">
     <div class="cal-topo">
       <button onclick="mudarMes(-1)">‹ Anterior</button>
-      <div style="text-align:center">
+      <div>
         <h2 id="mesTitulo"></h2>
         <button onclick="irHoje()">Hoje</button>
       </div>
