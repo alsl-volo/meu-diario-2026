@@ -1,984 +1,554 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calendário Interativo - Ana Lúcia Lourenço</title>
+
+<title>O Meu Diário</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --bg:#080806;
-  --card:#11100d;
-  --gold:#d8a84f;
-  --gold2:#f8dfaa;
-  --text:#fff4df;
-  --muted:#c9aa78;
-  --line:rgba(216,168,79,.35);
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-*{box-sizing:border-box}
-
 body{
-  margin:0;
-  min-height:100vh;
-  background:radial-gradient(circle at top,#1c1308 0%,#080806 55%,#030302 100%);
-  font-family:Georgia,"Times New Roman",serif;
-  color:var(--text);
+    background:#050505;
+    color:#f7e7c1;
+    font-family:'Cormorant Garamond', serif;
+    padding:18px;
 }
 
 .app{
-  width:min(1600px,97vw);
-  margin:18px auto 30px;
+    width:100%;
 }
 
 /* TOPO */
+
 .topo{
-  position:relative;
-  min-height:310px;
-  border-radius:26px;
-  overflow:hidden;
-  border:1px solid var(--line);
-  background:
-    radial-gradient(circle at 20% 0%,rgba(255,198,88,.55),transparent 22%),
-    radial-gradient(circle at 80% 0%,rgba(255,198,88,.6),transparent 24%),
-    linear-gradient(90deg,#0b0907,#1a1008 35%,#211407 50%,#140d08 70%,#090807);
-  box-shadow:0 0 45px rgba(216,168,79,.22);
+    position:relative;
+    min-height:420px;
+    border-radius:40px;
+    overflow:hidden;
+    border:1px solid rgba(255,215,120,0.3);
+
+    background:
+    radial-gradient(circle at 20% 10%, rgba(255,190,60,0.45), transparent 25%),
+    radial-gradient(circle at 80% 10%, rgba(255,190,60,0.45), transparent 25%),
+    linear-gradient(to bottom,#140800,#050505);
+
+    box-shadow:
+    0 0 40px rgba(255,180,50,0.15),
+    inset 0 0 60px rgba(255,180,50,0.12);
 }
+
+/* brilho */
 
 .topo::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle,rgba(255,220,140,.9) 0 1px,transparent 2px),
-    radial-gradient(circle,rgba(255,176,55,.55) 0 1px,transparent 2px);
-  background-size:56px 56px,92px 92px;
-  opacity:.5;
-  animation:brilhos 16s linear infinite;
-  z-index:1;
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:radial-gradient(#d4a54b 1.5px, transparent 1.5px);
+    background-size:55px 55px;
+    opacity:0.6;
 }
 
-@keyframes brilhos{
-  to{background-position:0 56px,0 92px}
-}
+/* fotos */
 
 .foto-ilvolo{
-  position:absolute;
-  left:5%;
-  bottom:0;
-  width:34%;
-  max-height:305px;
-  object-fit:contain;
-  z-index:3;
-  filter:drop-shadow(0 0 24px rgba(255,199,98,.35));
+    position:absolute;
+    left:5%;
+    bottom:0;
+    width:34%;
+    max-height:380px;
+    object-fit:contain;
+    z-index:3;
+
+    filter:
+    drop-shadow(0 0 20px rgba(255,200,100,0.35))
+    drop-shadow(0 0 50px rgba(255,180,50,0.25));
 }
 
 .foto-tony{
-  position:absolute;
-  right:7%;
-  bottom:0;
-  width:27%;
-  max-height:305px;
-  object-fit:contain;
-  z-index:3;
-  filter:drop-shadow(0 0 26px rgba(255,199,98,.4));
+    position:absolute;
+    right:6%;
+    bottom:0;
+    width:27%;
+    max-height:360px;
+    object-fit:contain;
+    z-index:3;
+
+    filter:
+    drop-shadow(0 0 20px rgba(255,200,100,0.35))
+    drop-shadow(0 0 50px rgba(255,180,50,0.25));
 }
 
+/* titulo */
+
 .titulo-topo{
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  z-index:4;
-  text-align:center;
-  padding:24px 44px;
-  border-radius:28px;
-  background:rgba(10,8,7,.66);
-  border:1px solid rgba(255,220,150,.34);
-  box-shadow:0 0 35px rgba(216,168,79,.25);
-  backdrop-filter:blur(7px);
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    z-index:4;
+
+    background:rgba(10,3,0,0.85);
+    padding:35px 55px;
+    border-radius:35px;
+
+    border:1px solid rgba(255,215,120,0.35);
+
+    text-align:center;
+
+    box-shadow:
+    0 0 35px rgba(255,180,50,0.18),
+    inset 0 0 25px rgba(255,180,50,0.08);
 }
 
 .titulo-topo h1{
-  margin:0;
-  font-family:"Brush Script MT","Lucida Handwriting","Segoe Script","Palatino Linotype",cursive;
-  font-size:clamp(2.4rem,4.6vw,4.6rem);
-  line-height:1;
-  font-weight:400;
-  color:#f8dfaa;
-  letter-spacing:1px;
-  text-shadow:0 0 16px rgba(216,168,79,.5);
+    font-family:'Great Vibes', cursive;
+    font-size:5rem;
+    line-height:1.1;
+    color:#f8d898;
+
+    text-shadow:
+    0 0 10px rgba(255,220,150,0.4),
+    0 0 25px rgba(255,180,50,0.3);
+
+    margin-bottom:18px;
 }
 
 .titulo-topo p{
-  margin:16px 0 0;
-  font-size:1.02rem;
-  line-height:1.45;
-  color:#fff1d6;
-  font-weight:bold;
+    font-size:1.05rem;
+    line-height:1.5;
+    font-weight:600;
+    color:#fff3d9;
 }
 
-/* MENU */
+/* menu */
+
 .menu{
-  margin:12px 0;
-  padding:10px;
-  border-radius:22px;
-  background:rgba(16,15,13,.9);
-  border:1px solid var(--line);
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:8px;
+    margin-top:18px;
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+
+    justify-content:center;
+
+    background:#0a0502;
+
+    border-radius:30px;
+    padding:16px;
+
+    border:1px solid rgba(255,200,100,0.2);
 }
 
-button{
-  font-family:inherit;
-  border:1px solid rgba(216,168,79,.28);
-  color:var(--text);
-  background:linear-gradient(135deg,#241a0f,#3a2a15);
-  padding:11px 16px;
-  border-radius:14px;
-  cursor:pointer;
-  font-size:1rem;
+.menu button{
+    background:linear-gradient(to bottom,#5a360d,#2b1605);
+    color:#ffe7b0;
+
+    border:none;
+
+    padding:14px 24px;
+
+    border-radius:18px;
+
+    font-size:1rem;
+    font-family:'Cormorant Garamond', serif;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.3s;
 }
 
-button:hover{
-  background:linear-gradient(135deg,#3a2a15,#5a3d17);
+.menu button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 20px rgba(255,180,50,0.35);
 }
 
-button.active{
-  background:linear-gradient(135deg,#5d4019,#9c6a24);
+/* conteúdo */
+
+.conteudo{
+    margin-top:18px;
+
+    display:grid;
+    grid-template-columns:320px 1fr 360px;
+    gap:18px;
 }
 
-/* LAYOUT */
-.grid{
-  display:grid;
-  grid-template-columns:260px 1fr 360px;
-  gap:14px;
-  align-items:start;
+/* caixas */
+
+.caixa{
+    background:#0a0502;
+
+    border-radius:30px;
+
+    padding:22px;
+
+    border:1px solid rgba(255,200,100,0.25);
+
+    box-shadow:
+    0 0 20px rgba(255,180,50,0.08);
 }
 
-.card{
-  background:linear-gradient(145deg,rgba(20,19,16,.96),rgba(9,9,8,.96));
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:18px;
-  box-shadow:0 12px 30px rgba(0,0,0,.25);
+.caixa h2{
+    text-align:center;
+    margin-bottom:18px;
+    font-size:2rem;
 }
 
-.calendar-card{
-  background:linear-gradient(145deg,#fff8ec,#eadcc2);
-  color:#3a2418;
+/* relógio */
+
+.relogio{
+    width:240px;
+    height:240px;
+
+    border:10px solid #d8a94f;
+
+    border-radius:50%;
+
+    margin:20px auto;
+
+    position:relative;
+
+    background:#000;
 }
 
-.calendar-card h2,
-.calendar-card h3,
-.calendar-card .month-title{
-  color:#4b2d1e;
+.numero{
+    position:absolute;
+    font-size:2rem;
+    font-weight:bold;
 }
 
-h2,h3{
-  margin:0 0 14px;
-  color:var(--gold2);
+.n12{top:10px;left:50%;transform:translateX(-50%);}
+.n3{right:15px;top:50%;transform:translateY(-50%);}
+.n6{bottom:10px;left:50%;transform:translateX(-50%);}
+.n9{left:15px;top:50%;transform:translateY(-50%);}
+
+.ponteiro{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform-origin:bottom;
+    border-radius:10px;
 }
 
-.small{
-  color:var(--muted);
-  font-size:.9rem;
-  line-height:1.4;
+.horas{
+    width:8px;
+    height:65px;
+    background:#ffe7b0;
 }
 
-/* RELÓGIO */
-.clock-box{text-align:center}
-
-.clock{
-  width:180px;
-  height:180px;
-  margin:10px auto;
-  border-radius:50%;
-  background:#0b0b09;
-  border:7px solid var(--gold);
-  position:relative;
+.minutos{
+    width:6px;
+    height:90px;
+    background:#fff;
 }
 
-.num{
-  position:absolute;
-  color:var(--gold2);
-  font-weight:bold;
-  font-size:1.1rem;
+.segundos{
+    width:3px;
+    height:100px;
+    background:red;
 }
 
-.n12{top:12px;left:50%;transform:translateX(-50%)}
-.n3{right:16px;top:50%;transform:translateY(-50%)}
-.n6{bottom:12px;left:50%;transform:translateX(-50%)}
-.n9{left:16px;top:50%;transform:translateY(-50%)}
+.centro{
+    width:18px;
+    height:18px;
+    background:#d8a94f;
+    border-radius:50%;
 
-.hand{
-  position:absolute;
-  bottom:50%;
-  left:50%;
-  transform-origin:bottom center;
-  border-radius:20px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
 }
 
-.hour{width:7px;height:45px;background:var(--gold2)}
-.minute{width:4px;height:65px;background:#fff3d0}
-.second{width:2px;height:75px;background:#ff3333}
+/* calendário */
 
-.center{
-  position:absolute;
-  left:50%;
-  top:50%;
-  width:12px;
-  height:12px;
-  border-radius:50%;
-  background:var(--gold);
-  transform:translate(-50%,-50%);
+.calendario{
+    background:#f6efdf;
+    color:#4e2f12;
 }
 
-.digital{
-  font-size:1.8rem;
-  color:var(--gold2);
-  font-weight:bold;
+.cal-topo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:20px;
 }
 
-.date-digital{color:var(--muted)}
+.cal-topo button{
+    background:#3a1f07;
+    color:white;
+    border:none;
 
-/* CALENDÁRIO */
-.month-bar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  margin-bottom:14px;
+    padding:14px 24px;
+    border-radius:18px;
+
+    font-size:1rem;
+    cursor:pointer;
 }
 
-.month-title{
-  font-size:2.1rem;
-  text-align:center;
+.cal-grid{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
 }
 
-.calendar{
-  display:grid;
-  grid-template-columns:repeat(7,1fr);
-  border:1px solid #d7bd91;
-  border-radius:16px;
-  overflow:hidden;
-  background:#fffaf0;
+.dia-nome,
+.dia{
+    border:1px solid #dcc7a0;
+    min-height:85px;
+    padding:10px;
 }
 
-.weekday,.day{
-  border-right:1px solid #e3cda8;
-  border-bottom:1px solid #e3cda8;
+.dia-nome{
+    background:#eadcc2;
+    font-weight:bold;
+    text-align:center;
+    font-size:1.2rem;
 }
 
-.weekday{
-  text-align:center;
-  padding:12px;
-  color:#4b2d1e;
-  font-weight:bold;
-  background:#f0dfc4;
+.dia{
+    background:#fffdf8;
+    font-size:1.1rem;
 }
 
-.day{
-  min-height:105px;
-  padding:9px;
-  background:#fff8ec;
-  cursor:pointer;
-  position:relative;
-  color:#3a2418;
+/* concertos */
+
+.concerto{
+    background:#111;
+    border-left:5px solid #5fa3ff;
+
+    padding:18px;
+    border-radius:18px;
+
+    margin-bottom:14px;
 }
 
-.day:hover{background:#f3e1c4}
-.day.empty{color:#b49a78;cursor:default}
-.day.today{box-shadow:inset 0 0 0 2px #c49035}
-.day.selected{background:#ead2a7}
-
-.day-number{
-  font-size:1.1rem;
-  font-weight:bold;
+.concerto h3{
+    font-size:1.8rem;
 }
 
-.dots{
-  display:flex;
-  gap:5px;
-  flex-wrap:wrap;
-  margin-top:7px;
+.concerto p{
+    font-size:1.2rem;
 }
 
-.dot{
-  width:9px;
-  height:9px;
-  border-radius:50%;
-}
+/* responsivo */
 
-.pt{background:#58b65e}
-.it{background:#e84c4c}
-.iv{background:#3f82d8}
-.bd{background:#8b5be8}
-.meu{background:#ff9f1a}
+@media(max-width:1100px){
 
-.note-preview{
-  margin-top:6px;
-  font-size:.75rem;
-  color:#60422f;
-  line-height:1.25;
-}
+    .conteudo{
+        grid-template-columns:1fr;
+    }
 
-.legend{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:12px;
-  font-size:.85rem;
-  color:#5c3d28;
-}
+    .foto-ilvolo{
+        width:45%;
+    }
 
-.legend span{
-  display:flex;
-  align-items:center;
-  gap:6px;
-}
+    .foto-tony{
+        width:35%;
+    }
 
-/* FORMULÁRIOS */
-input,textarea{
-  width:100%;
-  border:1px solid rgba(216,168,79,.3);
-  background:#0d0d0b;
-  color:var(--text);
-  border-radius:12px;
-  padding:11px;
-  font-family:inherit;
-}
-
-textarea{
-  min-height:110px;
-  resize:vertical;
-}
-
-.day-area{
-  margin-top:14px;
-}
-
-.two{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-}
-
-.list{
-  display:grid;
-  gap:8px;
-  margin-top:10px;
-}
-
-.item{
-  display:grid;
-  grid-template-columns:auto 1fr auto;
-  gap:8px;
-  align-items:center;
-  padding:8px 0;
-  border-bottom:1px solid rgba(216,168,79,.16);
-}
-
-.item.done span{
-  text-decoration:line-through;
-  color:#8e7858;
-}
-
-.delete{
-  padding:5px 9px;
-  background:#4b1818;
-}
-
-.photo-box{
-  border:1px dashed rgba(216,168,79,.45);
-  min-height:115px;
-  border-radius:14px;
-  display:grid;
-  place-items:center;
-  color:var(--muted);
-  text-align:center;
-  margin-top:8px;
-  overflow:hidden;
-}
-
-.photo-box img{
-  width:100%;
-  height:150px;
-  object-fit:cover;
-}
-
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:8px;
-  margin-top:8px;
-}
-
-.gallery img{
-  width:100%;
-  height:100px;
-  object-fit:cover;
-  border-radius:10px;
-}
-
-.event{
-  padding:10px;
-  border-radius:12px;
-  border-left:5px solid var(--gold);
-  background:rgba(255,255,255,.04);
-  margin-bottom:8px;
-}
-
-.event.ptb{border-left-color:#58b65e}
-.event.itb{border-left-color:#e84c4c}
-.event.ivb{border-left-color:#3f82d8}
-.event.bdb{border-left-color:#8b5be8}
-
-.quick{
-  display:grid;
-  gap:8px;
-}
-
-.bottom{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
-  margin-top:14px;
-}
-
-.signature{
-  margin-top:18px;
-  text-align:center;
-  color:var(--gold2);
-  font-style:italic;
-  font-size:1.4rem;
-}
-
-@media(max-width:1150px){
-  .grid,.bottom{grid-template-columns:1fr}
-  .topo{min-height:520px}
-  .foto-ilvolo{left:4%;width:48%}
-  .foto-tony{right:4%;width:39%}
+    .titulo-topo h1{
+        font-size:4rem;
+    }
 }
 
 @media(max-width:700px){
-  .app{width:98vw}
-  .topo{min-height:520px}
-  .foto-ilvolo{width:65%;left:-5%}
-  .foto-tony{width:58%;right:-10%}
-  .titulo-topo{width:80%;padding:18px}
-  .titulo-topo h1{font-size:2.7rem}
-  .calendar{font-size:.85rem}
-  .weekday{padding:7px}
-  .day{min-height:70px;padding:6px}
-  .two{grid-template-columns:1fr}
+
+    .topo{
+        min-height:650px;
+    }
+
+    .foto-ilvolo{
+        position:relative;
+        width:80%;
+        left:auto;
+        margin:0 auto;
+        display:block;
+    }
+
+    .foto-tony{
+        position:relative;
+        width:60%;
+        right:auto;
+        margin:0 auto;
+        display:block;
+    }
+
+    .titulo-topo{
+        position:relative;
+        left:auto;
+        top:auto;
+        transform:none;
+
+        width:90%;
+        margin:20px auto;
+    }
+
+    .titulo-topo h1{
+        font-size:3.2rem;
+    }
 }
+
 </style>
 </head>
 
 <body>
+
 <div class="app">
 
 <header class="topo">
-  <img class="foto-ilvolo" src="il volo 1.png"
-  <div class="titulo-topo">
-    <h1>O Meu<br>Diário...</h1>
-    <p>Calendário, memórias, tarefas,<br>compras e momentos especiais</p>
-  </div>
-  <img class="foto-tony" src="eu e tony1.png"
+
+<img class="foto-ilvolo" src="il volo 1.png" alt="Il Volo">
+
+<div class="titulo-topo">
+<h1>O Meu<br>Diário...</h1>
+
+<p>
+Calendário, memórias, tarefas,<br>
+compras e momentos especiais
+</p>
+</div>
+
+<img class="foto-tony" src="eu e tony1.png" alt="Ana e Tony">
+
 </header>
 
 <nav class="menu">
-  <button class="active">📅 Calendário</button>
-  <button onclick="focarTarefa()">☑️ Tarefas</button>
-  <button onclick="focarMemoria()">📖 Memórias</button>
-  <button onclick="focarCompra()">🛒 Compras</button>
-  <button onclick="focarAniversario()">🎂 Aniversários</button>
-  <button onclick="holidayList.scrollIntoView({behavior:'smooth'})">🚩 Feriados</button>
-  <button onclick="concertList.scrollIntoView({behavior:'smooth'})">🎵 Concertos Il Volo</button>
-  <button onclick="panelGuardar.scrollIntoView({behavior:'smooth'})">💾 Guardar</button>
+
+<button>🗓️ Calendário</button>
+<button>☑️ Tarefas</button>
+<button>📖 Memórias</button>
+<button>🛒 Compras</button>
+<button>🎂 Aniversários</button>
+<button>🚩 Feriados</button>
+<button>🎵 Concertos Il Volo</button>
+<button>💾 Guardar</button>
+
 </nav>
 
-<main class="grid">
+<div class="conteudo">
 
-<aside>
-  <section class="card clock-box">
-    <h3>RELÓGIO</h3>
-    <div class="clock">
-      <span class="num n12">12</span>
-      <span class="num n3">3</span>
-      <span class="num n6">6</span>
-      <span class="num n9">9</span>
-      <div class="hand hour" id="hourHand"></div>
-      <div class="hand minute" id="minuteHand"></div>
-      <div class="hand second" id="secondHand"></div>
-      <div class="center"></div>
-    </div>
-    <div class="digital" id="digitalTime"></div>
-    <div class="date-digital" id="digitalDate"></div>
-  </section>
+<div class="caixa">
 
-  <section class="card" style="margin-top:14px">
-    <h3>FILTROS</h3>
-    <label><input type="checkbox" id="filterPT" checked> Feriados Portugal</label><br><br>
-    <label><input type="checkbox" id="filterIT" checked> Feriados Itália</label><br><br>
-    <label><input type="checkbox" id="filterIV" checked> Concertos Il Volo</label><br><br>
-    <label><input type="checkbox" id="filterBD" checked> Aniversários</label><br><br>
-    <label><input type="checkbox" id="filterMEU" checked> Eventos pessoais</label>
-  </section>
+<h2>RELÓGIO</h2>
 
-  <section class="card" style="margin-top:14px">
-    <h3>AÇÕES RÁPIDAS</h3>
-    <div class="quick">
-      <button onclick="focarTarefa()">＋ Nova Tarefa</button>
-      <button onclick="focarMemoria()">＋ Nova Memória</button>
-      <button onclick="focarAniversario()">＋ Aniversário</button>
-      <button onclick="adicionarEvento()">＋ Evento Pessoal</button>
-    </div>
-  </section>
-</aside>
+<div class="relogio">
 
-<section>
-  <section class="card calendar-card">
-    <div class="month-bar">
-      <button onclick="mudarMes(-1)">‹ Anterior</button>
-      <div>
-        <div class="month-title" id="monthTitle"></div>
-        <button onclick="irHoje()">Hoje</button>
-      </div>
-      <button onclick="mudarMes(1)">Seguinte ›</button>
-    </div>
+<div class="numero n12">12</div>
+<div class="numero n3">3</div>
+<div class="numero n6">6</div>
+<div class="numero n9">9</div>
 
-    <div class="calendar" id="calendar"></div>
+<div class="ponteiro horas" id="horas"></div>
+<div class="ponteiro minutos" id="minutos"></div>
+<div class="ponteiro segundos" id="segundos"></div>
 
-    <div class="legend">
-      <span><i class="dot pt"></i> Feriados Portugal</span>
-      <span><i class="dot it"></i> Feriados Itália</span>
-      <span><i class="dot iv"></i> Concertos Il Volo</span>
-      <span><i class="dot bd"></i> Aniversários</span>
-      <span><i class="dot meu"></i> Eventos pessoais</span>
-    </div>
-  </section>
+<div class="centro"></div>
 
-  <section class="card day-area">
-    <h2 id="selectedLabel"></h2>
+</div>
 
-    <div class="two">
-      <div>
-        <h3>NOTAS DO DIA ✎</h3>
-        <textarea id="dayNote" placeholder="Escreve aqui as tuas notas, ideias, pensamentos ou memórias..."></textarea>
-      </div>
+</div>
 
-      <div>
-        <h3>FOTOS DO DIA 📷</h3>
-        <input type="file" id="photoInput" accept="image/*" multiple>
-        <div class="photo-box" id="mainPhoto">Clica para adicionar fotos</div>
-        <div class="gallery" id="gallery"></div>
-        <button style="margin-top:8px" onclick="clearPhotos()">Apagar fotos deste dia</button>
-      </div>
-    </div>
+<div class="caixa calendario">
 
-    <h3 style="margin-top:16px">EVENTOS DESTE DIA</h3>
-    <div id="eventsDay"></div>
-  </section>
-</section>
+<div class="cal-topo">
+<button>‹ Anterior</button>
 
-<aside>
-  <section class="card">
-    <h3>PRÓXIMOS CONCERTOS IL VOLO</h3>
-    <div id="concertList"></div>
-  </section>
-</aside>
+<div style="text-align:center;">
+<h2>Maio 2026</h2>
+<button style="margin-top:8px;">Hoje</button>
+</div>
 
-</main>
+<button>Seguinte ›</button>
+</div>
 
-<section class="bottom">
-  <section class="card" id="panelTarefas">
-    <h3>TAREFAS</h3>
-    <input id="taskText" placeholder="Nova tarefa">
-    <button style="margin-top:8px" onclick="addTask()">+ Adicionar</button>
-    <div class="list" id="taskList"></div>
-  </section>
+<div class="cal-grid">
 
-  <section class="card" id="panelCompras">
-    <h3>COMPRAS</h3>
-    <input id="shopText" placeholder="Produto a comprar">
-    <button style="margin-top:8px" onclick="addShop()">+ Adicionar</button>
-    <div class="list" id="shopList"></div>
-  </section>
+<div class="dia-nome">Seg</div>
+<div class="dia-nome">Ter</div>
+<div class="dia-nome">Qua</div>
+<div class="dia-nome">Qui</div>
+<div class="dia-nome">Sex</div>
+<div class="dia-nome">Sáb</div>
+<div class="dia-nome">Dom</div>
 
-  <section class="card" id="panelAniversarios">
-    <h3>ANIVERSÁRIOS</h3>
-    <input id="birthdayName" placeholder="Nome">
-    <br><br>
-    <input id="birthdayDate" type="date">
-    <button style="margin-top:8px" onclick="addBirthday()">+ Adicionar</button>
-    <div class="list" id="birthdayList"></div>
-  </section>
+<div class="dia"></div>
+<div class="dia"></div>
+<div class="dia"></div>
+<div class="dia"></div>
 
-  <section class="card">
-    <h3>FERIADOS</h3>
-    <div id="holidayList"></div>
-  </section>
-</section>
+<div class="dia">
+<strong>1</strong><br>
+🇵🇹 Dia do Trabalhador
+</div>
 
-<section class="card" style="margin-top:14px" id="panelGuardar">
-  <h3>GUARDAR / EXPORTAR</h3>
-  <p class="small">Os teus dados ficam guardados automaticamente neste navegador.</p>
-  <button onclick="exportData()">Exportar dados</button>
-  <br><br>
-  <input type="file" id="importFile" accept="application/json">
-  <br><br>
-  <button onclick="resetAll()">Apagar tudo</button>
-</section>
+<div class="dia"><strong>2</strong></div>
+<div class="dia"><strong>3</strong></div>
 
-<div class="signature">Ana Lúcia Lourenço ♡</div>
+</div>
+
+</div>
+
+<div class="caixa">
+
+<h2>PRÓXIMOS CONCERTOS IL VOLO</h2>
+
+<div class="concerto">
+<h3>Il Volo</h3>
+<p>Marostica Summer Fest, Marostica</p>
+<p>🗓️ 1 de Julho de 2026</p>
+</div>
+
+<div class="concerto">
+<h3>Il Volo</h3>
+<p>Piazza Duomo, Pistoia</p>
+<p>🗓️ 3 de Julho de 2026</p>
+</div>
+
+</div>
+
+</div>
 
 </div>
 
 <script>
-const storageKey="diario_interativo_ana_v5";
 
-const monthNames=["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
-const weekDays=["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
+function atualizarRelogio(){
 
-const holidaysPT={
-"2026-01-01":"Ano Novo","2026-04-03":"Sexta-feira Santa","2026-04-05":"Páscoa","2026-04-25":"Dia da Liberdade","2026-05-01":"Dia do Trabalhador","2026-06-04":"Corpo de Deus","2026-06-10":"Dia de Portugal","2026-08-15":"Assunção de Nossa Senhora","2026-10-05":"Implantação da República","2026-11-01":"Todos os Santos","2026-12-01":"Restauração da Independência","2026-12-08":"Imaculada Conceição","2026-12-25":"Natal",
-"2027-01-01":"Ano Novo","2027-03-26":"Sexta-feira Santa","2027-03-28":"Páscoa","2027-04-25":"Dia da Liberdade","2027-05-01":"Dia do Trabalhador","2027-05-27":"Corpo de Deus","2027-06-10":"Dia de Portugal","2027-08-15":"Assunção de Nossa Senhora","2027-10-05":"Implantação da República","2027-11-01":"Todos os Santos","2027-12-01":"Restauração da Independência","2027-12-08":"Imaculada Conceição","2027-12-25":"Natal"
-};
+const agora = new Date();
 
-const holidaysIT={
-"2026-01-01":"Capodanno","2026-01-06":"Epifania","2026-04-05":"Pasqua","2026-04-06":"Lunedì dell’Angelo","2026-04-25":"Festa della Liberazione","2026-05-01":"Festa del Lavoro","2026-06-02":"Festa della Repubblica","2026-08-15":"Ferragosto","2026-11-01":"Ognissanti","2026-12-08":"Immacolata Concezione","2026-12-25":"Natale","2026-12-26":"Santo Stefano",
-"2027-01-01":"Capodanno","2027-01-06":"Epifania","2027-03-28":"Pasqua","2027-03-29":"Lunedì dell’Angelo","2027-04-25":"Festa della Liberazione","2027-05-01":"Festa del Lavoro","2027-06-02":"Festa della Repubblica","2027-08-15":"Ferragosto","2027-11-01":"Ognissanti","2027-12-08":"Immacolata Concezione","2027-12-25":"Natale","2027-12-26":"Santo Stefano"
-};
+const horas = agora.getHours();
+const minutos = agora.getMinutes();
+const segundos = agora.getSeconds();
 
-const concerts=[
-["2026-07-01","Il Volo — Marostica Summer Fest, Marostica"],
-["2026-07-03","Il Volo — Piazza Duomo, Pistoia"],
-["2026-07-06","Il Volo — Asti Musica, Asti"],
-["2026-07-08","Il Volo — Castello Sforzesco, Vigevano"],
-["2026-07-11","Il Volo — Teatro Greco, Siracusa"],
-["2026-07-15","Il Volo — Barcelona"],
-["2026-07-17","Il Volo — Cernobbio"],
-["2026-07-19","Il Volo — Málaga"],
-["2026-07-21","Il Volo — Murcia"],
-["2026-07-23","Il Volo — Cattolica"],
-["2026-07-25","Il Volo — Este"],
-["2026-07-27","Il Volo — Thessaloniki"],
-["2026-07-29","Il Volo — Corfu"],
-["2026-07-31","Il Volo — Codroipo"],
-["2026-08-02","Il Volo — Forte dei Marmi"],
-["2026-08-07","Il Volo — Barletta"],
-["2026-08-09","Il Volo — Alghero"],
-["2026-08-22","Il Volo — Taormina"],
-["2026-08-23","Il Volo — Taormina"],
-["2026-09-24","Il Volo — Tutti Per Uno, Mantova"],
-["2026-09-26","Il Volo — Tutti Per Uno, Mantova"],
-["2026-09-27","Il Volo — Tutti Per Uno, Mantova"],
-["2026-12-07","Il Volo — Milano"],
-["2026-12-12","Il Volo — Firenze"],
-["2026-12-17","Il Volo — Roma"],
-["2026-12-19","Il Volo — Torino"],
-["2026-12-20","Il Volo — Bologna"],
-["2027-10-26","Il Volo — Madrid"]
-];
+const hDeg = (horas % 12) * 30 + minutos * 0.5;
+const mDeg = minutos * 6;
+const sDeg = segundos * 6;
 
-let today=new Date();
-let currentYear=today.getFullYear();
-let currentMonth=today.getMonth();
-let selectedDate=formatDate(today);
-let data=loadData();
+document.getElementById("horas").style.transform =
+`translate(-50%, -100%) rotate(${hDeg}deg)`;
 
-function baseData(){return{days:{},birthdays:[],personalEvents:[]}}
-function loadData(){try{return JSON.parse(localStorage.getItem(storageKey))||baseData()}catch(e){return baseData()}}
-function saveData(){localStorage.setItem(storageKey,JSON.stringify(data));renderCalendar()}
-function formatDate(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
-function prettyDate(k){const [y,m,d]=k.split("-").map(Number);return d+" de "+monthNames[m-1]+" de "+y}
-function getDay(k){if(!data.days[k])data.days[k]={note:"",tasks:[],shopping:[],photos:[]};return data.days[k]}
-function esc(t){return String(t||"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")}
+document.getElementById("minutos").style.transform =
+`translate(-50%, -100%) rotate(${mDeg}deg)`;
 
-function eventsForDay(k){
-  let r=[];
-  if(filterPT.checked&&holidaysPT[k])r.push(["ptb","🇵🇹 "+holidaysPT[k]]);
-  if(filterIT.checked&&holidaysIT[k])r.push(["itb","🇮🇹 "+holidaysIT[k]]);
-  if(filterIV.checked)concerts.filter(c=>c[0]===k).forEach(c=>r.push(["ivb","🎵 "+c[1]]));
-  if(filterBD.checked)data.birthdays.filter(b=>b.date&&b.date.slice(5)===k.slice(5)).forEach(b=>r.push(["bdb","🎂 Aniversário: "+b.name]));
-  if(filterMEU.checked)data.personalEvents.filter(e=>e.date===k).forEach(e=>r.push(["","⭐ "+e.text]));
-  return r;
+document.getElementById("segundos").style.transform =
+`translate(-50%, -100%) rotate(${sDeg}deg)`;
+
 }
 
-function renderCalendar(){
-  calendar.innerHTML="";
-  monthTitle.textContent=monthNames[currentMonth]+" "+currentYear;
+setInterval(atualizarRelogio,1000);
 
-  weekDays.forEach(w=>{
-    let e=document.createElement("div");
-    e.className="weekday";
-    e.textContent=w;
-    calendar.appendChild(e);
-  });
+atualizarRelogio();
 
-  let first=new Date(currentYear,currentMonth,1);
-  let last=new Date(currentYear,currentMonth+1,0);
-  let offset=first.getDay()-1;
-  if(offset<0)offset=6;
-
-  for(let i=0;i<offset;i++){
-    let e=document.createElement("div");
-    e.className="day empty";
-    calendar.appendChild(e);
-  }
-
-  for(let n=1;n<=last.getDate();n++){
-    let k=formatDate(new Date(currentYear,currentMonth,n));
-    let d=data.days[k];
-    let ev=eventsForDay(k);
-    let el=document.createElement("div");
-    el.className="day";
-    if(k===formatDate(new Date()))el.classList.add("today");
-    if(k===selectedDate)el.classList.add("selected");
-
-    let dots=[];
-    if(filterPT.checked&&holidaysPT[k])dots.push("pt");
-    if(filterIT.checked&&holidaysIT[k])dots.push("it");
-    if(filterIV.checked&&concerts.some(c=>c[0]===k))dots.push("iv");
-    if(filterBD.checked&&data.birthdays.some(b=>b.date&&b.date.slice(5)===k.slice(5)))dots.push("bd");
-    if(filterMEU.checked&&data.personalEvents.some(e=>e.date===k))dots.push("meu");
-
-    let text=d?.note||ev[0]?.[1]||"";
-
-    el.innerHTML=`<div class="day-number">${n}</div>
-    ${dots.length?`<div class="dots">${dots.map(x=>`<i class="dot ${x}"></i>`).join("")}</div>`:""}
-    ${text?`<div class="note-preview">${esc(text)}</div>`:""}`;
-
-    el.onclick=()=>{selectedDate=k;loadSelectedDay();renderCalendar()};
-    calendar.appendChild(el);
-  }
-
-  renderConcerts();
-  renderHolidayList();
-}
-
-function loadSelectedDay(){
-  let d=getDay(selectedDate);
-  selectedLabel.textContent=prettyDate(selectedDate);
-  dayNote.value=d.note||"";
-  renderList(taskList,d.tasks);
-  renderList(shopList,d.shopping);
-  renderPhotos();
-  renderEventsDay();
-  renderBirthdays();
-}
-
-function renderList(container,arr){
-  container.innerHTML="";
-  if(!arr.length){container.innerHTML='<p class="small">Ainda não há itens.</p>';return}
-  arr.forEach((it,i)=>{
-    let el=document.createElement("div");
-    el.className="item "+(it.done?"done":"");
-    el.innerHTML=`<input type="checkbox" ${it.done?"checked":""}><span>${esc(it.text)}</span><button class="delete">✕</button>`;
-    el.querySelector("input").onchange=e=>{it.done=e.target.checked;saveData();renderList(container,arr)};
-    el.querySelector("button").onclick=()=>{arr.splice(i,1);saveData();renderList(container,arr)};
-    container.appendChild(el);
-  });
-}
-
-function renderEventsDay(){
-  let ev=eventsForDay(selectedDate);
-  eventsDay.innerHTML="";
-  if(!ev.length){eventsDay.innerHTML='<p class="small">Não há eventos neste dia.</p>';return}
-  ev.forEach(x=>{
-    let e=document.createElement("div");
-    e.className="event "+x[0];
-    e.textContent=x[1];
-    eventsDay.appendChild(e);
-  });
-}
-
-function renderPhotos(){
-  let photos=getDay(selectedDate).photos;
-  gallery.innerHTML="";
-  mainPhoto.innerHTML=photos.length?`<img src="${photos[0]}">`:"Clica para adicionar fotos";
-  photos.forEach(p=>{
-    let img=document.createElement("img");
-    img.src=p;
-    gallery.appendChild(img);
-  });
-}
-
-function resizeImage(file,max=1200,q=.82){
-  return new Promise(resolve=>{
-    let reader=new FileReader();
-    reader.onload=e=>{
-      let img=new Image();
-      img.onload=()=>{
-        let w=img.width,h=img.height;
-        if(w>h&&w>max){h=Math.round(h*max/w);w=max}
-        else if(h>max){w=Math.round(w*max/h);h=max}
-        let c=document.createElement("canvas");
-        c.width=w;c.height=h;
-        c.getContext("2d").drawImage(img,0,0,w,h);
-        resolve(c.toDataURL("image/jpeg",q));
-      };
-      img.src=e.target.result;
-    };
-    reader.readAsDataURL(file);
-  });
-}
-
-photoInput.onchange=async e=>{
-  let d=getDay(selectedDate);
-  for(const f of Array.from(e.target.files))d.photos.push(await resizeImage(f));
-  photoInput.value="";
-  saveData();
-  renderPhotos();
-};
-
-function clearPhotos(){
-  if(confirm("Apagar fotos deste dia?")){
-    getDay(selectedDate).photos=[];
-    saveData();
-    renderPhotos();
-  }
-}
-
-function addTask(){
-  let t=taskText.value.trim();
-  if(!t)return;
-  getDay(selectedDate).tasks.push({text:t,done:false});
-  taskText.value="";
-  saveData();
-  loadSelectedDay();
-}
-
-function addShop(){
-  let t=shopText.value.trim();
-  if(!t)return;
-  getDay(selectedDate).shopping.push({text:t,done:false});
-  shopText.value="";
-  saveData();
-  loadSelectedDay();
-}
-
-function addBirthday(){
-  let name=birthdayName.value.trim();
-  let date=birthdayDate.value;
-  if(!name||!date)return;
-  data.birthdays.push({name,date});
-  birthdayName.value="";
-  birthdayDate.value="";
-  saveData();
-  loadSelectedDay();
-}
-
-function renderBirthdays(){
-  birthdayList.innerHTML="";
-  if(!data.birthdays.length){birthdayList.innerHTML='<p class="small">Ainda não há aniversários.</p>';return}
-  data.birthdays.forEach((b,i)=>{
-    let e=document.createElement("div");
-    e.className="item";
-    e.innerHTML=`<span>🎂</span><span>${esc(b.name)} — ${prettyDate(b.date)}</span><button class="delete">✕</button>`;
-    e.querySelector("button").onclick=()=>{data.birthdays.splice(i,1);saveData();loadSelectedDay()};
-    birthdayList.appendChild(e);
-  });
-}
-
-function adicionarEvento(){
-  let t=prompt("Que evento queres adicionar a "+prettyDate(selectedDate)+"?");
-  if(t){data.personalEvents.push({date:selectedDate,text:t});saveData();loadSelectedDay()}
-}
-
-function renderConcerts(){
-  concertList.innerHTML="";
-  concerts.filter(c=>c[0]>=formatDate(new Date())).slice(0,8).forEach(c=>{
-    concertList.innerHTML+=`<div class="event ivb"><b>Il Volo</b><br>${esc(c[1].replace("Il Volo — ",""))}<br><span class="small">📅 ${prettyDate(c[0])}</span></div>`;
-  });
-}
-
-function renderHolidayList(){
-  holidayList.innerHTML="";
-  let prefix=currentYear+"-"+String(currentMonth+1).padStart(2,"0");
-  Object.entries(holidaysPT).filter(h=>h[0].startsWith(prefix)).forEach(h=>holidayList.innerHTML+=`<div class="event ptb">🇵🇹 ${prettyDate(h[0])} — ${h[1]}</div>`);
-  Object.entries(holidaysIT).filter(h=>h[0].startsWith(prefix)).forEach(h=>holidayList.innerHTML+=`<div class="event itb">🇮🇹 ${prettyDate(h[0])} — ${h[1]}</div>`);
-  if(!holidayList.innerHTML)holidayList.innerHTML='<p class="small">Não há feriados nacionais neste mês.</p>';
-}
-
-dayNote.oninput=()=>{getDay(selectedDate).note=dayNote.value;saveData()};
-
-function mudarMes(v){
-  currentMonth+=v;
-  if(currentMonth<0){currentMonth=11;currentYear--}
-  if(currentMonth>11){currentMonth=0;currentYear++}
-  renderCalendar();
-}
-
-function irHoje(){
-  let h=new Date();
-  currentYear=h.getFullYear();
-  currentMonth=h.getMonth();
-  selectedDate=formatDate(h);
-  loadSelectedDay();
-  renderCalendar();
-}
-
-function updateClock(){
-  let n=new Date(),s=n.getSeconds(),m=n.getMinutes(),h=n.getHours()%12;
-  secondHand.style.transform=`translateX(-50%) rotate(${s*6}deg)`;
-  minuteHand.style.transform=`translateX(-50%) rotate(${m*6+s*.1}deg)`;
-  hourHand.style.transform=`translateX(-50%) rotate(${h*30+m*.5}deg)`;
-  digitalTime.textContent=n.toLocaleTimeString("pt-PT",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
-  digitalDate.textContent=n.toLocaleDateString("pt-PT",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
-}
-
-function focarTarefa(){panelTarefas.scrollIntoView({behavior:"smooth"});taskText.focus()}
-function focarCompra(){panelCompras.scrollIntoView({behavior:"smooth"});shopText.focus()}
-function focarMemoria(){dayNote.scrollIntoView({behavior:"smooth"});dayNote.focus()}
-function focarAniversario(){panelAniversarios.scrollIntoView({behavior:"smooth"});birthdayName.focus()}
-
-[filterPT,filterIT,filterIV,filterBD,filterMEU].forEach(f=>f.onchange=()=>{renderCalendar();renderEventsDay()});
-
-function exportData(){
-  let blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
-  let url=URL.createObjectURL(blob);
-  let a=document.createElement("a");
-  a.href=url;
-  a.download="copia-diario-ana.json";
-  a.click();
-  URL.revokeObjectURL(url);
-}
-
-importFile.onchange=e=>{
-  let f=e.target.files[0];
-  if(!f)return;
-  let reader=new FileReader();
-  reader.onload=ev=>{
-    try{
-      data=JSON.parse(ev.target.result);
-      saveData();
-      loadSelectedDay();
-      alert("Dados importados com sucesso!");
-    }catch{
-      alert("Não consegui importar este ficheiro.");
-    }
-  };
-  reader.readAsText(f);
-};
-
-function resetAll(){
-  if(confirm("Tens a certeza que queres apagar tudo?")){
-    localStorage.removeItem(storageKey);
-    data=loadData();
-    loadSelectedDay();
-    renderCalendar();
-  }
-}
-
-setInterval(updateClock,1000);
-updateClock();
-loadSelectedDay();
-renderCalendar();
 </script>
 
 </body>
