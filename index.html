@@ -1,403 +1,332 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-PT">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>O Meu Diário</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-    background:#050505;
-    color:#f7e7c1;
-    font-family:'Cormorant Garamond', serif;
-    padding:18px;
+  background:#050505;
+  color:#f7e7c1;
+  font-family:'Cormorant Garamond',serif;
+  padding:18px;
 }
-
-.app{
-    width:100%;
-}
-
-/* TOPO */
 
 .topo{
-    position:relative;
-    min-height:420px;
-    border-radius:40px;
-    overflow:hidden;
-    border:1px solid rgba(255,215,120,0.3);
-
-    background:
-    radial-gradient(circle at 20% 10%, rgba(255,190,60,0.45), transparent 25%),
-    radial-gradient(circle at 80% 10%, rgba(255,190,60,0.45), transparent 25%),
+  position:relative;
+  min-height:420px;
+  border-radius:38px;
+  overflow:hidden;
+  border:1px solid rgba(255,215,120,.3);
+  background:
+    radial-gradient(circle at 20% 10%,rgba(255,190,60,.45),transparent 25%),
+    radial-gradient(circle at 80% 10%,rgba(255,190,60,.45),transparent 25%),
     linear-gradient(to bottom,#140800,#050505);
-
-    box-shadow:
-    0 0 40px rgba(255,180,50,0.15),
-    inset 0 0 60px rgba(255,180,50,0.12);
 }
 
-/* brilho */
-
-.topo::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background-image:radial-gradient(#d4a54b 1.5px, transparent 1.5px);
-    background-size:55px 55px;
-    opacity:0.6;
+.topo:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:radial-gradient(#d4a54b 1.5px,transparent 1.5px);
+  background-size:55px 55px;
+  opacity:.6;
 }
-
-/* fotos */
 
 .foto-ilvolo{
-    position:absolute;
-    left:5%;
-    bottom:0;
-    width:34%;
-    max-height:380px;
-    object-fit:contain;
-    z-index:3;
-
-    filter:
-    drop-shadow(0 0 20px rgba(255,200,100,0.35))
-    drop-shadow(0 0 50px rgba(255,180,50,0.25));
+  position:absolute;
+  left:5%;
+  bottom:0;
+  width:34%;
+  max-height:380px;
+  object-fit:contain;
+  z-index:3;
+  filter:drop-shadow(0 0 25px rgba(255,200,100,.35));
 }
 
 .foto-tony{
-    position:absolute;
-    right:6%;
-    bottom:0;
-    width:27%;
-    max-height:360px;
-    object-fit:contain;
-    z-index:3;
-
-    filter:
-    drop-shadow(0 0 20px rgba(255,200,100,0.35))
-    drop-shadow(0 0 50px rgba(255,180,50,0.25));
+  position:absolute;
+  right:6%;
+  bottom:0;
+  width:27%;
+  max-height:360px;
+  object-fit:contain;
+  z-index:3;
+  filter:drop-shadow(0 0 25px rgba(255,200,100,.35));
 }
 
-/* titulo */
-
 .titulo-topo{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    z-index:4;
-
-    background:rgba(10,3,0,0.85);
-    padding:35px 55px;
-    border-radius:35px;
-
-    border:1px solid rgba(255,215,120,0.35);
-
-    text-align:center;
-
-    box-shadow:
-    0 0 35px rgba(255,180,50,0.18),
-    inset 0 0 25px rgba(255,180,50,0.08);
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  z-index:4;
+  background:rgba(10,3,0,.85);
+  padding:32px 52px;
+  border-radius:34px;
+  border:1px solid rgba(255,215,120,.35);
+  text-align:center;
 }
 
 .titulo-topo h1{
-    font-family:'Great Vibes', cursive;
-    font-size:5rem;
-    line-height:1.1;
-    color:#f8d898;
-
-    text-shadow:
-    0 0 10px rgba(255,220,150,0.4),
-    0 0 25px rgba(255,180,50,0.3);
-
-    margin-bottom:18px;
+  font-family:'Great Vibes',cursive;
+  font-size:4.7rem;
+  line-height:1.05;
+  color:#f8d898;
+  text-shadow:0 0 18px rgba(255,180,50,.35);
+  margin-bottom:14px;
 }
 
 .titulo-topo p{
-    font-size:1.05rem;
-    line-height:1.5;
-    font-weight:600;
-    color:#fff3d9;
+  font-size:1.05rem;
+  line-height:1.4;
+  font-weight:700;
+  color:#fff3d9;
 }
 
-/* menu */
-
+/* MENU MAIS PEQUENO */
 .menu{
-    margin-top:18px;
-
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-
-    justify-content:center;
-
-    background:#0a0502;
-
-    border-radius:30px;
-    padding:16px;
-
-    border:1px solid rgba(255,200,100,0.2);
+  margin-top:18px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  background:#0a0502;
+  border-radius:28px;
+  padding:14px;
+  border:1px solid rgba(255,200,100,.2);
 }
 
 .menu button{
-    background:linear-gradient(to bottom,#5a360d,#2b1605);
-    color:#ffe7b0;
-
-    border:none;
-
-    padding:14px 24px;
-
-    border-radius:18px;
-
-    font-size:1rem;
-    font-family:'Cormorant Garamond', serif;
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:0.3s;
+  background:linear-gradient(to bottom,#5a360d,#2b1605);
+  color:#ffe7b0;
+  border:none;
+  padding:10px 18px;
+  border-radius:16px;
+  font-size:.92rem;
+  font-family:'Cormorant Garamond',serif;
+  font-weight:700;
+  cursor:pointer;
 }
 
 .menu button:hover{
-    transform:translateY(-2px);
-    box-shadow:0 0 20px rgba(255,180,50,0.35);
+  box-shadow:0 0 18px rgba(255,180,50,.35);
 }
 
-/* conteúdo */
-
+/* GRELHA */
 .conteudo{
-    margin-top:18px;
-
-    display:grid;
-    grid-template-columns:320px 1fr 360px;
-    gap:18px;
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:300px 1fr 340px;
+  gap:18px;
 }
-
-/* caixas */
 
 .caixa{
-    background:#0a0502;
-
-    border-radius:30px;
-
-    padding:22px;
-
-    border:1px solid rgba(255,200,100,0.25);
-
-    box-shadow:
-    0 0 20px rgba(255,180,50,0.08);
+  background:#0a0502;
+  border-radius:28px;
+  padding:22px;
+  border:1px solid rgba(255,200,100,.25);
 }
 
 .caixa h2{
-    text-align:center;
-    margin-bottom:18px;
-    font-size:2rem;
+  text-align:center;
+  margin-bottom:18px;
+  font-size:2rem;
+  color:#ffe7b0;
 }
 
-/* relógio */
-
+/* RELÓGIO */
 .relogio{
-    width:240px;
-    height:240px;
-
-    border:10px solid #d8a94f;
-
-    border-radius:50%;
-
-    margin:20px auto;
-
-    position:relative;
-
-    background:#000;
+  width:220px;
+  height:220px;
+  border:9px solid #d8a94f;
+  border-radius:50%;
+  margin:20px auto;
+  position:relative;
+  background:#000;
 }
 
 .numero{
-    position:absolute;
-    font-size:2rem;
-    font-weight:bold;
+  position:absolute;
+  font-size:1.8rem;
+  font-weight:bold;
 }
 
-.n12{top:10px;left:50%;transform:translateX(-50%);}
-.n3{right:15px;top:50%;transform:translateY(-50%);}
-.n6{bottom:10px;left:50%;transform:translateX(-50%);}
-.n9{left:15px;top:50%;transform:translateY(-50%);}
+.n12{top:10px;left:50%;transform:translateX(-50%)}
+.n3{right:15px;top:50%;transform:translateY(-50%)}
+.n6{bottom:10px;left:50%;transform:translateX(-50%)}
+.n9{left:15px;top:50%;transform:translateY(-50%)}
 
 .ponteiro{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform-origin:bottom;
-    border-radius:10px;
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform-origin:bottom;
+  border-radius:10px;
 }
 
-.horas{
-    width:8px;
-    height:65px;
-    background:#ffe7b0;
-}
-
-.minutos{
-    width:6px;
-    height:90px;
-    background:#fff;
-}
-
-.segundos{
-    width:3px;
-    height:100px;
-    background:red;
-}
+.horas{width:8px;height:58px;background:#ffe7b0}
+.minutos{width:6px;height:82px;background:white}
+.segundos{width:3px;height:95px;background:red}
 
 .centro{
-    width:18px;
-    height:18px;
-    background:#d8a94f;
-    border-radius:50%;
-
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
+  width:18px;
+  height:18px;
+  background:#d8a94f;
+  border-radius:50%;
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
 }
 
-/* calendário */
+.digital{
+  text-align:center;
+  font-size:1.4rem;
+  margin-top:8px;
+}
 
+/* CALENDÁRIO */
 .calendario{
-    background:#f6efdf;
-    color:#4e2f12;
+  background:#f6efdf;
+  color:#4e2f12;
 }
 
 .cal-topo{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    margin-bottom:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
 }
 
 .cal-topo button{
-    background:#3a1f07;
-    color:white;
-    border:none;
-
-    padding:14px 24px;
-    border-radius:18px;
-
-    font-size:1rem;
-    cursor:pointer;
+  background:#3a1f07;
+  color:white;
+  border:none;
+  padding:12px 20px;
+  border-radius:16px;
+  cursor:pointer;
 }
 
 .cal-grid{
-    display:grid;
-    grid-template-columns:repeat(7,1fr);
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
 }
 
-.dia-nome,
-.dia{
-    border:1px solid #dcc7a0;
-    min-height:85px;
-    padding:10px;
+.dia-nome,.dia{
+  border:1px solid #dcc7a0;
+  min-height:82px;
+  padding:10px;
 }
 
 .dia-nome{
-    background:#eadcc2;
-    font-weight:bold;
-    text-align:center;
-    font-size:1.2rem;
+  background:#eadcc2;
+  font-weight:bold;
+  text-align:center;
+  font-size:1.1rem;
 }
 
 .dia{
-    background:#fffdf8;
-    font-size:1.1rem;
+  background:#fffdf8;
+  font-size:1rem;
+  cursor:pointer;
 }
 
-/* concertos */
+.dia:hover{
+  background:#f2dfbd;
+}
 
+/* DIÁRIO EDITÁVEL */
+textarea,input{
+  width:100%;
+  border:none;
+  border-radius:18px;
+  padding:16px;
+  font-size:1.05rem;
+  font-family:'Cormorant Garamond',serif;
+  background:#fffdf8;
+  color:#3b210f;
+}
+
+textarea{
+  min-height:210px;
+  resize:vertical;
+}
+
+.lista{
+  margin-top:12px;
+}
+
+.item{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:8px 0;
+  border-bottom:1px solid rgba(255,215,120,.2);
+}
+
+.item button{
+  background:#4b1d10;
+  color:white;
+  border:none;
+  border-radius:10px;
+  padding:5px 10px;
+}
+
+.add{
+  margin-top:8px;
+  background:#5a360d;
+  color:#ffe7b0;
+  border:none;
+  border-radius:14px;
+  padding:10px 14px;
+  cursor:pointer;
+}
+
+/* CONCERTOS */
 .concerto{
-    background:#111;
-    border-left:5px solid #5fa3ff;
-
-    padding:18px;
-    border-radius:18px;
-
-    margin-bottom:14px;
+  background:#111;
+  border-left:5px solid #5fa3ff;
+  padding:16px;
+  border-radius:18px;
+  margin-bottom:14px;
 }
 
-.concerto h3{
-    font-size:1.8rem;
+.baixo{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
 }
-
-.concerto p{
-    font-size:1.2rem;
-}
-
-/* responsivo */
 
 @media(max-width:1100px){
-
-    .conteudo{
-        grid-template-columns:1fr;
-    }
-
-    .foto-ilvolo{
-        width:45%;
-    }
-
-    .foto-tony{
-        width:35%;
-    }
-
-    .titulo-topo h1{
-        font-size:4rem;
-    }
+  .conteudo,.baixo{grid-template-columns:1fr}
+  .foto-ilvolo{width:45%}
+  .foto-tony{width:35%}
 }
 
 @media(max-width:700px){
-
-    .topo{
-        min-height:650px;
-    }
-
-    .foto-ilvolo{
-        position:relative;
-        width:80%;
-        left:auto;
-        margin:0 auto;
-        display:block;
-    }
-
-    .foto-tony{
-        position:relative;
-        width:60%;
-        right:auto;
-        margin:0 auto;
-        display:block;
-    }
-
-    .titulo-topo{
-        position:relative;
-        left:auto;
-        top:auto;
-        transform:none;
-
-        width:90%;
-        margin:20px auto;
-    }
-
-    .titulo-topo h1{
-        font-size:3.2rem;
-    }
+  body{padding:8px}
+  .topo{min-height:620px}
+  .foto-ilvolo{
+    width:75%;
+    left:3%;
+  }
+  .foto-tony{
+    width:55%;
+    right:2%;
+  }
+  .titulo-topo{
+    width:86%;
+    padding:22px;
+  }
+  .titulo-topo h1{font-size:3.2rem}
 }
-
 </style>
 </head>
 
@@ -406,149 +335,285 @@ body{
 <div class="app">
 
 <header class="topo">
+  <img class="foto-ilvolo" src="il volo 1.png" alt="Il Volo">
 
-<img class="foto-ilvolo" src="il volo 1.png" alt="Il Volo">
+  <div class="titulo-topo">
+    <h1>O Meu<br>Diário...</h1>
+    <p>Calendário, memórias, tarefas,<br>compras e momentos especiais</p>
+  </div>
 
-<div class="titulo-topo">
-<h1>O Meu<br>Diário...</h1>
-
-<p>
-Calendário, memórias, tarefas,<br>
-compras e momentos especiais
-</p>
-</div>
-
-<img class="foto-tony" src="eu e tony1.png" alt="Ana e Tony">
-
+  <img class="foto-tony" src="eu e tony1.png" alt="Ana e Tony">
 </header>
 
 <nav class="menu">
-
-<button>🗓️ Calendário</button>
-<button>☑️ Tarefas</button>
-<button>📖 Memórias</button>
-<button>🛒 Compras</button>
-<button>🎂 Aniversários</button>
-<button>🚩 Feriados</button>
-<button>🎵 Concertos Il Volo</button>
-<button>💾 Guardar</button>
-
+  <button onclick="scrollToBox('calendario')">🗓️ Calendário</button>
+  <button onclick="scrollToBox('tarefas')">☑️ Tarefas</button>
+  <button onclick="scrollToBox('diarioBox')">📖 Memórias</button>
+  <button onclick="scrollToBox('compras')">🛒 Compras</button>
+  <button onclick="scrollToBox('aniversarios')">🎂 Aniversários</button>
+  <button onclick="scrollToBox('feriados')">🚩 Feriados</button>
+  <button onclick="scrollToBox('concertos')">🎵 Concertos Il Volo</button>
+  <button onclick="exportar()">💾 Guardar</button>
 </nav>
 
 <div class="conteudo">
 
-<div class="caixa">
+  <div class="caixa">
+    <h2>RELÓGIO</h2>
 
-<h2>RELÓGIO</h2>
+    <div class="relogio">
+      <div class="numero n12">12</div>
+      <div class="numero n3">3</div>
+      <div class="numero n6">6</div>
+      <div class="numero n9">9</div>
+      <div class="ponteiro horas" id="horas"></div>
+      <div class="ponteiro minutos" id="minutos"></div>
+      <div class="ponteiro segundos" id="segundos"></div>
+      <div class="centro"></div>
+    </div>
 
-<div class="relogio">
+    <div class="digital" id="digital"></div>
+  </div>
 
-<div class="numero n12">12</div>
-<div class="numero n3">3</div>
-<div class="numero n6">6</div>
-<div class="numero n9">9</div>
+  <div class="caixa calendario" id="calendario">
+    <div class="cal-topo">
+      <button onclick="mudarMes(-1)">‹ Anterior</button>
+      <div style="text-align:center">
+        <h2 id="mesTitulo"></h2>
+        <button onclick="irHoje()">Hoje</button>
+      </div>
+      <button onclick="mudarMes(1)">Seguinte ›</button>
+    </div>
 
-<div class="ponteiro horas" id="horas"></div>
-<div class="ponteiro minutos" id="minutos"></div>
-<div class="ponteiro segundos" id="segundos"></div>
+    <div class="cal-grid" id="calGrid"></div>
+  </div>
 
-<div class="centro"></div>
-
-</div>
-
-</div>
-
-<div class="caixa calendario">
-
-<div class="cal-topo">
-<button>‹ Anterior</button>
-
-<div style="text-align:center;">
-<h2>Maio 2026</h2>
-<button style="margin-top:8px;">Hoje</button>
-</div>
-
-<button>Seguinte ›</button>
-</div>
-
-<div class="cal-grid">
-
-<div class="dia-nome">Seg</div>
-<div class="dia-nome">Ter</div>
-<div class="dia-nome">Qua</div>
-<div class="dia-nome">Qui</div>
-<div class="dia-nome">Sex</div>
-<div class="dia-nome">Sáb</div>
-<div class="dia-nome">Dom</div>
-
-<div class="dia"></div>
-<div class="dia"></div>
-<div class="dia"></div>
-<div class="dia"></div>
-
-<div class="dia">
-<strong>1</strong><br>
-🇵🇹 Dia do Trabalhador
-</div>
-
-<div class="dia"><strong>2</strong></div>
-<div class="dia"><strong>3</strong></div>
+  <div class="caixa" id="concertos">
+    <h2>PRÓXIMOS CONCERTOS IL VOLO</h2>
+    <div class="concerto">
+      <h3>Il Volo</h3>
+      <p>Marostica Summer Fest, Marostica</p>
+      <p>🗓️ 1 de Julho de 2026</p>
+    </div>
+    <div class="concerto">
+      <h3>Il Volo</h3>
+      <p>Piazza Duomo, Pistoia</p>
+      <p>🗓️ 3 de Julho de 2026</p>
+    </div>
+  </div>
 
 </div>
 
-</div>
+<div class="baixo">
 
-<div class="caixa">
+  <div class="caixa" id="diarioBox">
+    <h2>📖 Diário do Dia</h2>
+    <p id="dataEscolhida" style="text-align:center;margin-bottom:10px"></p>
+    <textarea id="diario" placeholder="Escreve aqui memórias, pensamentos, ideias ou momentos especiais..."></textarea>
+  </div>
 
-<h2>PRÓXIMOS CONCERTOS IL VOLO</h2>
+  <div class="caixa" id="tarefas">
+    <h2>☑️ Tarefas</h2>
+    <input id="novaTarefa" placeholder="Nova tarefa...">
+    <button class="add" onclick="adicionarTarefa()">+ Adicionar</button>
+    <div class="lista" id="listaTarefas"></div>
+  </div>
 
-<div class="concerto">
-<h3>Il Volo</h3>
-<p>Marostica Summer Fest, Marostica</p>
-<p>🗓️ 1 de Julho de 2026</p>
-</div>
+  <div class="caixa" id="compras">
+    <h2>🛒 Compras</h2>
+    <input id="novaCompra" placeholder="Produto a comprar...">
+    <button class="add" onclick="adicionarCompra()">+ Adicionar</button>
+    <div class="lista" id="listaCompras"></div>
+  </div>
 
-<div class="concerto">
-<h3>Il Volo</h3>
-<p>Piazza Duomo, Pistoia</p>
-<p>🗓️ 3 de Julho de 2026</p>
-</div>
+  <div class="caixa" id="aniversarios">
+    <h2>🎂 Aniversários</h2>
+    <input id="novoAniv" placeholder="Ex: Luca - 20 Abril">
+    <button class="add" onclick="adicionarAniv()">+ Adicionar</button>
+    <div class="lista" id="listaAniv"></div>
+  </div>
 
-</div>
+  <div class="caixa" id="feriados">
+    <h2>🚩 Feriados</h2>
+    <p>🇵🇹 1 Janeiro — Ano Novo</p>
+    <p>🇵🇹 25 Abril — Dia da Liberdade</p>
+    <p>🇵🇹 1 Maio — Dia do Trabalhador</p>
+    <p>🇵🇹 10 Junho — Dia de Portugal</p>
+    <p>🇮🇹 6 Janeiro — Epifania</p>
+    <p>🇮🇹 2 Junho — Festa della Repubblica</p>
+    <p>🇮🇹 15 Agosto — Ferragosto</p>
+    <p>🇮🇹 25 Dezembro — Natale</p>
+  </div>
+
+  <div class="caixa">
+    <h2>💾 Cópia</h2>
+    <button class="add" onclick="exportar()">Exportar dados</button>
+    <input type="file" id="importarFicheiro" style="margin-top:12px">
+  </div>
 
 </div>
 
 </div>
 
 <script>
+let dataAtual = new Date();
+let ano = dataAtual.getFullYear();
+let mes = dataAtual.getMonth();
+let diaSelecionado = formatarData(dataAtual);
+
+const meses = [
+  "Janeiro","Fevereiro","Março","Abril","Maio","Junho",
+  "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"
+];
+
+const diasSemana = ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
+
+let dados = JSON.parse(localStorage.getItem("diarioAna")) || {
+  diarios:{},
+  tarefas:[],
+  compras:[],
+  aniversarios:[]
+};
+
+function guardar(){
+  localStorage.setItem("diarioAna",JSON.stringify(dados));
+}
+
+function formatarData(d){
+  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+}
+
+function dataBonita(k){
+  const [a,m,d]=k.split("-");
+  return d+" de "+meses[Number(m)-1]+" de "+a;
+}
+
+function desenharCalendario(){
+  mesTitulo.innerText = meses[mes]+" "+ano;
+  calGrid.innerHTML = "";
+
+  diasSemana.forEach(d=>{
+    calGrid.innerHTML += `<div class="dia-nome">${d}</div>`;
+  });
+
+  let primeiro = new Date(ano,mes,1);
+  let ultimo = new Date(ano,mes+1,0);
+  let inicio = primeiro.getDay()-1;
+  if(inicio<0) inicio=6;
+
+  for(let i=0;i<inicio;i++){
+    calGrid.innerHTML += `<div class="dia"></div>`;
+  }
+
+  for(let d=1; d<=ultimo.getDate(); d++){
+    let chave = formatarData(new Date(ano,mes,d));
+    let texto = dados.diarios[chave] ? "📖" : "";
+    calGrid.innerHTML += `<div class="dia" onclick="selecionarDia('${chave}')"><strong>${d}</strong><br>${texto}</div>`;
+  }
+}
+
+function selecionarDia(chave){
+  diaSelecionado = chave;
+  dataEscolhida.innerText = dataBonita(chave);
+  diario.value = dados.diarios[chave] || "";
+  scrollToBox("diarioBox");
+}
+
+diario.addEventListener("input",()=>{
+  dados.diarios[diaSelecionado]=diario.value;
+  guardar();
+  desenharCalendario();
+});
+
+function mudarMes(v){
+  mes += v;
+  if(mes<0){mes=11;ano--}
+  if(mes>11){mes=0;ano++}
+  desenharCalendario();
+}
+
+function irHoje(){
+  let h = new Date();
+  ano=h.getFullYear();
+  mes=h.getMonth();
+  selecionarDia(formatarData(h));
+  desenharCalendario();
+}
 
 function atualizarRelogio(){
+  const agora = new Date();
+  const h = agora.getHours();
+  const m = agora.getMinutes();
+  const s = agora.getSeconds();
 
-const agora = new Date();
+  horas.style.transform = `translate(-50%, -100%) rotate(${(h%12)*30+m*.5}deg)`;
+  minutos.style.transform = `translate(-50%, -100%) rotate(${m*6}deg)`;
+  segundos.style.transform = `translate(-50%, -100%) rotate(${s*6}deg)`;
 
-const horas = agora.getHours();
-const minutos = agora.getMinutes();
-const segundos = agora.getSeconds();
+  digital.innerText = agora.toLocaleTimeString("pt-PT");
+}
 
-const hDeg = (horas % 12) * 30 + minutos * 0.5;
-const mDeg = minutos * 6;
-const sDeg = segundos * 6;
+function adicionarTarefa(){
+  if(!novaTarefa.value.trim()) return;
+  dados.tarefas.push(novaTarefa.value.trim());
+  novaTarefa.value="";
+  guardar();
+  mostrarListas();
+}
 
-document.getElementById("horas").style.transform =
-`translate(-50%, -100%) rotate(${hDeg}deg)`;
+function adicionarCompra(){
+  if(!novaCompra.value.trim()) return;
+  dados.compras.push(novaCompra.value.trim());
+  novaCompra.value="";
+  guardar();
+  mostrarListas();
+}
 
-document.getElementById("minutos").style.transform =
-`translate(-50%, -100%) rotate(${mDeg}deg)`;
+function adicionarAniv(){
+  if(!novoAniv.value.trim()) return;
+  dados.aniversarios.push(novoAniv.value.trim());
+  novoAniv.value="";
+  guardar();
+  mostrarListas();
+}
 
-document.getElementById("segundos").style.transform =
-`translate(-50%, -100%) rotate(${sDeg}deg)`;
+function mostrarListas(){
+  listaTarefas.innerHTML = dados.tarefas.map((x,i)=>`<div class="item"><span>${x}</span><button onclick="dados.tarefas.splice(${i},1);guardar();mostrarListas()">x</button></div>`).join("");
+  listaCompras.innerHTML = dados.compras.map((x,i)=>`<div class="item"><span>${x}</span><button onclick="dados.compras.splice(${i},1);guardar();mostrarListas()">x</button></div>`).join("");
+  listaAniv.innerHTML = dados.aniversarios.map((x,i)=>`<div class="item"><span>${x}</span><button onclick="dados.aniversarios.splice(${i},1);guardar();mostrarListas()">x</button></div>`).join("");
+}
 
+function exportar(){
+  const blob = new Blob([JSON.stringify(dados,null,2)],{type:"application/json"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href=url;
+  a.download="copia-diario-ana.json";
+  a.click();
+}
+
+importarFicheiro.addEventListener("change",e=>{
+  const file=e.target.files[0];
+  if(!file) return;
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    dados=JSON.parse(ev.target.result);
+    guardar();
+    mostrarListas();
+    desenharCalendario();
+  };
+  reader.readAsText(file);
+});
+
+function scrollToBox(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 
 setInterval(atualizarRelogio,1000);
-
 atualizarRelogio();
-
+selecionarDia(diaSelecionado);
+desenharCalendario();
+mostrarListas();
 </script>
 
 </body>
